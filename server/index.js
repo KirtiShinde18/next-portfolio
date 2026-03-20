@@ -7,7 +7,7 @@ const app = express()
 mongoose.connect(process.env.MONGO_URL)
 
 app.use("/" , (req , res) => { 
-    res.status(200).json({message: "Portfolio Api Running"})
+    res.status(200).json({message: `Portfolio Api Running in ${process.env.NODE_ENV} mode`})
 })
 
 mongoose.connection.once("open", () => {
