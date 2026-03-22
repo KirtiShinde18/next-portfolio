@@ -59,7 +59,7 @@ const About = () => {
           Hello, I'm Kirti 👋
         </h2>
     
-        <p className="text-gray-600 text-lg mb-6">
+        <p className="text-gray-500 text-lg mb-6">
           I'm a passionate developer who loves building modern web applications with clean UI and smooth animations.
         </p>
     
@@ -81,7 +81,7 @@ const About = () => {
     
               <span
                 className={`relative z-10 ${
-                  activeTab === tab ? "text-black" : "text-gray-600"
+                  activeTab === tab ? "text-black" : "text-gray-400"
                 }`}
               >
                 {tab}
@@ -100,7 +100,7 @@ const About = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 40 }}
                 transition={{ duration: 0.4 }}
-                className="text-gray-600 text-lg"
+                className=" text-lg"
               >
                 I'm a passionate developer who loves building modern UI and smooth animations.
               </motion.div>
@@ -113,7 +113,7 @@ const About = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 40 }}
                 transition={{ duration: 0.4 }}
-                className="text-gray-600 text-lg"
+                className=" text-lg"
               >
                 MCA student with strong foundation in web development and problem solving.
               </motion.div>
@@ -126,7 +126,7 @@ const About = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 40 }}
                 transition={{ duration: 0.4 }}
-                className="text-gray-600 text-lg"
+                className=" text-lg"
               >
                 Worked on multiple projects including full-stack apps and UI/UX designs.
               </motion.div>
