@@ -110,13 +110,13 @@ const Home = () => (
 
           {/* Left Column */}
           {/* <div className="text-center lg:text-left"> */}
-            <motion.div
+            {/* <motion.div
               className="w-full mt-25 md:mt-10 p-10 text-center lg:text-left"
               initial={{ opacity: 0, y: 80 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true }}
-            >
+            > */}
 
             
               {/* <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold leading-tight text-white"> */}
@@ -197,7 +197,7 @@ const Home = () => (
                 </a>
               </div>
 
-            </motion.div>
+            {/* </motion.div> */}
           {/* </div> */}
 
           {/* Right Image */}
