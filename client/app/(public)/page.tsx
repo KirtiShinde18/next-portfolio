@@ -111,48 +111,27 @@ const Home = () => (
           {/* Left Column */}
           {/* <div className="text-center lg:text-left "> */}
           <div className="w-full mt-25 md:mt-10 p-10 text-center lg:text-left ">
-            {/* <motion.div
-              className="w-full mt-25 md:mt-10 p-10 text-center lg:text-left"
-              initial={{ opacity: 0, y: 80 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              viewport={{ once: true }}
-            > */}
-
             
-              {/* <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold leading-tight text-white"> */}
-              {/* <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold leading-tight">
-                I'm {profileData.name} <br />
-                <span className="bg-gradient-to-r from-[#4158D0] via-[#C850C0] to-[#d382c8] bg-clip-text text-transparent">
-                  {profileData.role}
-                </span>
-              </h1> */}
+            <h1 className="text-2xl sm:text-3xl md:text-3xl font-bold leading-tight">
+              I'm {profileData.name} 
+            </h1>
 
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight">
-                I'm {profileData.name} <br />
-  
-                {/* <span className="block text-4xl sm:text-7xl md:text-6xl lg:text-4xl bg-gradient-to-r from-[#4158D0] via-[#C850C0] to-[#d382c8] bg-clip-text text-transparent">
-                  {profileData.role}
-                </span> */}
+            <p
+              className="sm:text-4xl text-3xl md:text-4xl font-bold mb-4 leading-tight font-display "
+            >
+                {text.split("").map((char, index) => (
+                  <motion.span
+                    key={index}
+                    className="inline-block bg-gradient-to-t from-[#4158D0] via-[#C850C0] to-[#d382c8] bg-clip-text text-transparent"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.08 }}
+                  >
+                    {char === " " ? "\u00A0" : char}
+                  </motion.span>
+                ))}
+            </p>
 
-                <p
-                      className="sm:text-4xl text-3xl md:text-7xl font-bold mb-4 leading-tight font-display text-center"
-                    >
-                      {text.split("").map((char, index) => (
-                        <motion.span
-                          key={index}
-                          className="inline-block bg-gradient-to-t from-[#4158D0] via-[#C850C0] to-[#d382c8] bg-clip-text text-transparent"
-                          initial={{ opacity: 0, y: 30 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: index * 0.08 }}
-                        >
-                          {char === " " ? "\u00A0" : char}
-                        </motion.span>
-                      ))}
-                  </p>
-
-              </h1>
-  
               <p className="text-gray-400 mt-6 text-lg sm:text-xl md:text-2xl">
                 {profileData.tagline}
               </p>
@@ -178,7 +157,7 @@ const Home = () => (
               </div>
   
               {/* Social Links */}
-              <div className="flex gap-4 mt-10 ml-5">
+              <div className="flex gap-4 mt-10 ">
                 <a
                   href={profileData.social.github}
                   target="_blank"
@@ -290,7 +269,7 @@ const Home = () => (
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
               viewport={{ once: true, amount: 0.3 }}
             >
-              <div className="grid grid-cols-2 gap-6 text-center p-10">
+              <div className="grid grid-cols-1 lg:grid-cols-2  gap-6 text-center p-10">
                 {profileData.stats.map((item, index) => (
                   <div key={index} className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl  shadow-xl p-8 min-w-[100px]">
                    
@@ -417,12 +396,14 @@ const Home = () => (
         
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 40 }}
+              // initial={{ opacity: 0, y: 40 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               className="group rounded-2xl overflow-hidden bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl hover:shadow-2xl transition-all duration-300"
             >
+              
   
               {/* Image */}
               <div className="relative h-56 w-full overflow-hidden">
@@ -486,7 +467,7 @@ const Home = () => (
       <div className="w-full flex justify-center text-black">
         <div className="w-full max-w-6xl bg-gradient-to-r from-purple-300 to-indigo-300 text-center p-10 rounded-2xl">
           
-          <h1 className="mt-10 md:mt-5 text-4xl md:text-5xl font-bold leading-tight font-display">
+          <h1 className="mt-10 md:mt-5 text-2xl md:text-5xl font-bold leading-tight font-display">
             Ready to Work Together?
           </h1>
       
