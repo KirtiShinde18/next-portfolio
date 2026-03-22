@@ -109,7 +109,8 @@ const Home = () => (
         <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
           {/* Left Column */}
-          {/* <div className="text-center lg:text-left"> */}
+          {/* <div className="text-center lg:text-left "> */}
+          <div className="w-full mt-25 md:mt-10 p-10 text-center lg:text-left ">
             {/* <motion.div
               className="w-full mt-25 md:mt-10 p-10 text-center lg:text-left"
               initial={{ opacity: 0, y: 80 }}
@@ -198,7 +199,7 @@ const Home = () => (
               </div>
 
             {/* </motion.div> */}
-          {/* </div> */}
+          </div>
 
           {/* Right Image */}
           <div className="mb-10 mx-auto w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-96 lg:h-96 relative rounded-full overflow-hidden border-4 border-gray-300">
