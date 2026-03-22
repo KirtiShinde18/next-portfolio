@@ -8,6 +8,8 @@ import kirti from "./../../public/assets/images/kirti.jpeg"
 import Image from 'next/image'
 import CountUp from 'react-countup'
 
+const text = "Fullstack Web Developer";
+
 
 
 /* ===================== CENTRALIZED DATA ===================== */
@@ -118,11 +120,36 @@ const Home = () => (
 
             
               {/* <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold leading-tight text-white"> */}
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold leading-tight">
+              {/* <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold leading-tight">
                 I'm {profileData.name} <br />
                 <span className="bg-gradient-to-r from-[#4158D0] via-[#C850C0] to-[#d382c8] bg-clip-text text-transparent">
                   {profileData.role}
                 </span>
+              </h1> */}
+
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight">
+                I'm {profileData.name} <br />
+  
+                {/* <span className="block text-4xl sm:text-7xl md:text-6xl lg:text-4xl bg-gradient-to-r from-[#4158D0] via-[#C850C0] to-[#d382c8] bg-clip-text text-transparent">
+                  {profileData.role}
+                </span> */}
+
+                <p
+                      className="sm:text-4xl text-3xl md:text-7xl font-bold mb-4 leading-tight font-display text-center"
+                    >
+                      {text.split("").map((char, index) => (
+                        <motion.span
+                          key={index}
+                          className="inline-block bg-gradient-to-t from-[#4158D0] via-[#C850C0] to-[#d382c8] bg-clip-text text-transparent"
+                          initial={{ opacity: 0, y: 30 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: index * 0.08 }}
+                        >
+                          {char === " " ? "\u00A0" : char}
+                        </motion.span>
+                      ))}
+                  </p>
+
               </h1>
   
               <p className="text-gray-400 mt-6 text-lg sm:text-xl md:text-2xl">
