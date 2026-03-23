@@ -80,7 +80,7 @@ const projectsData = {
     {
       title: "💗 Glamiee",
       desc: "A modern clothing eCommerce platform offering seamless shopping and a user-friendly experience",
-      image: "/assets/images/project1.png",
+      image: "/assets/images/project3.png",
       tech: ["React", "Next.js", "Node.js", "MongoDB"],
       live: "https://e-saraswati.vercel.app/",
       github: "https://github.com/KirtiShinde18/eSaraswati",
@@ -477,7 +477,7 @@ const Home = () => (
       
           <div className="flex justify-center">
             <a href="/contact">
-              <button className="mt-10 flex items-center gap-2 px-6 py-3 rounded-xl border border-purple-400 font-semibold hover:scale-105 transition-transform duration-300 shadow-lg">
+              <button className="mt-10 flex items-center gap-2 px-6 py-3 rounded-xl border border-black font-semibold hover:scale-105 transition-transform duration-300 shadow-lg">
                 Get In Touch <MailIcon />
               </button>
             </a>
@@ -490,4 +490,5 @@ const Home = () => (
   </>
 )
 
-export default Home
+// export default Home
+export default React.memo(Home);

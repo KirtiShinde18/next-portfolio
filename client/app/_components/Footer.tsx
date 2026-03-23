@@ -49,7 +49,7 @@ const text = "Kirti";
 
         {/* Useful Links */}
         <div className="flex flex-col md:w-1/3 text-lg">
-          <h3 className="text-lg font-semibold font-display mb-2">Useful Links</h3>
+          <h3 className="text-xl font-semibold font-display mb-2">Useful Links</h3>
           <ul className=" space-y-1">
             {navLinks.map((link) => (
               <li key={link.name}>
@@ -66,7 +66,7 @@ const text = "Kirti";
         
         {/* Contact Us */}
         <div className="flex flex-col md:w-1/3 text-lg">
-          <h3 className="text-lg font-semibold font-display mb-2">Contact Us</h3>
+          <h3 className="text-xl font-semibold font-display mb-2">Contact Us</h3>
           <p><a href="tel:+9209123023" className="hover:text-purple-400 transition-colors duration-300">+91-9209123023</a></p>
           <p> 
             <a href="mailto:kirtishinde3520@gmail.com" className="block hover:text-purple-400 transition-colors duration-300">
