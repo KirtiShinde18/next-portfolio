@@ -6,6 +6,7 @@ import Image from 'next/image';
 
 // image 
 import kirti from "./../../../public/assets/images/kirti.jpeg"
+import { Calendar, GraduationCap, LocationEdit, Mail, Phone } from 'lucide-react';
 
 const text = "About Me";
 const tabs = ["Bio", "Education", "Personal"];
@@ -14,12 +15,12 @@ const About = () => {
   const [activeTab, setActiveTab] = useState("Bio");
 
   return <>
-  <div className="min-h-screen md:mt-10 mt-20 flex items-center justify-center px-4">
+  <div className="min-h-screen md:mt-10  flex items-center justify-center px-4">
   <div className="max-w-7xl mx-auto z-10 text-center">
 
     {/* HEADING */}
     <motion.h1
-      className="sm:text-5xl text-4xl md:text-7xl font-bold mb-4 leading-tight font-display text-center"
+      className="mt-20 sm:text-5xl text-4xl md:text-7xl font-bold mb-4 leading-tight font-display text-center"
     >
       {text.split("").map((char, index) => (
         <motion.span
@@ -40,10 +41,10 @@ const About = () => {
     </p>
 
     {/* GRID SECTION */}
-    <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-left">
+    <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-left mb-10">
     
       {/* LEFT - IMAGE */}
-      <div className="relative w-full max-w-[350px] h-[400px] mx-auto">
+      <div className="relative w-full max-w-[220px] h-[260px] sm:max-w-[260px] sm:h-[300px] md:max-w-[320px] md:h-[380px] lg:max-w-[400px] lg:h-[450px] mx-auto">
         <Image
           src={kirti}
           alt="Kirti Shinde"
@@ -56,7 +57,7 @@ const About = () => {
       {/* RIGHT - CONTENT */}
       <div>
         <h2 className="text-3xl md:text-5xl font-bold mb-4">
-          Hello, I'm Kirti 👋
+          Hello, I'm Kirti 👋🏻
         </h2>
     
         <p className="text-gray-500 text-lg mb-6">
@@ -91,48 +92,158 @@ const About = () => {
         </div>
     
         {/* CONTENT */}
-        <div className="relative min-h-[100px]">
-          <AnimatePresence mode="wait">
-            {activeTab === "Bio" && (
-              <motion.div
-                key="bio"
-                initial={{ opacity: 0, y: -40 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 40 }}
-                transition={{ duration: 0.4 }}
-                className=" text-lg"
-              >
-                I'm a passionate developer who loves building modern UI and smooth animations.
-              </motion.div>
-            )}
-    
-            {activeTab === "Education" && (
-              <motion.div
-                key="education"
-                initial={{ opacity: 0, y: -40 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 40 }}
-                transition={{ duration: 0.4 }}
-                className=" text-lg"
-              >
-                MCA student with strong foundation in web development and problem solving.
-              </motion.div>
-            )}
-    
-            {activeTab === "Personal" && (
-              <motion.div
-                key="personal"
-                initial={{ opacity: 0, y: -40 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 40 }}
-                transition={{ duration: 0.4 }}
-                className=" text-lg"
-              >
-                Worked on multiple projects including full-stack apps and UI/UX designs.
-              </motion.div>
-            )}
-          </AnimatePresence>
+<div className="relative min-h-[300px] md:min-h-[350px] transition-all duration-300">
+  <AnimatePresence mode="wait">
+  
+  {/* BIO */}
+  {activeTab === "Bio" && (
+    <motion.div
+      key="bio"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+      transition={{ duration: 0.4 }}
+      className="text-lg leading-relaxed"
+    >
+      <p>
+        I’m a passionate Full-Stack Developer with a strong focus on building modern,
+        scalable, and user-centric web applications. I specialize in frontend development
+        using React, creating responsive and intuitive interfaces that deliver great user experiences.
+      </p>
+
+      <p className="mt-4">
+        Alongside frontend expertise, I work extensively on backend development, designing
+        secure APIs, managing databases, and ensuring smooth integration between systems.
+      </p>
+
+      <p className="mt-4">
+        With a solid understanding of both frontend and backend technologies, I enjoy
+        solving complex problems and turning ideas into functional, high-quality products.
+      </p>
+    </motion.div>
+  )}
+
+  {/* EDUCATION */}
+  {activeTab === "Education" && (
+    <motion.div
+      key="education"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+      transition={{ duration: 0.4 }}
+      className="text-lg space-y-6"
+    >
+
+      {/* CARD */}
+      {[ 
+        {
+          title: "Bachelor of Computer Science (BCS)",
+          desc: "Aug 2022 - Mar 2025",
+          place: "Shiv Chhatrapati College, Chhatrapati Sambhaji Nagar"
+        },
+        {
+          title: "Higher Secondary School",
+          desc: "July 2017 - Feb 2019",
+          place: "Shree Goraksha Junior College"
+        }
+      ].map((item, i) => (
+        <div
+          key={i}
+          className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start sm:items-center 
+          rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 
+          shadow-xl p-5 hover:shadow-2xl hover:bg-white/20 transition-all duration-300"
+        >
+          <div className="p-3 rounded-full bg-white/20">
+            <GraduationCap />
+          </div>
+
+          <div>
+            <h1 className="text-lg font-bold">{item.title}</h1>
+            <p className="text-gray-500">
+              {item.desc} <br /> {item.place}
+            </p>
+          </div>
         </div>
+      ))}
+
+    </motion.div>
+  )}
+
+  {/* PERSONAL */}
+  {activeTab === "Personal" && (
+    <motion.div
+      key="personal"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+      transition={{ duration: 0.4 }}
+    >
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+        {/* CARD COMPONENT */}
+        {[
+          { icon: <Calendar />, title: "Date Of Birth", value: "10 June" },
+          { icon: <LocationEdit />, title: "Location", value: "Chhatrapati Sambhaji Nagar, Maharashtra" },
+          { icon: <Mail />, title: "Email", value: "kirtishinde3520@gmail.com", link: "mailto:kirtishinde3520@gmail.com" },
+          { icon: <Phone />, title: "Phone", value: "+91-9209123023", link: "tel:+919209123023" },
+        ].map((item, i) => (
+          <div
+            key={i}
+            className="flex items-center gap-4 p-5 rounded-2xl 
+            bg-white/10 backdrop-blur-lg border border-white/20 
+            shadow-lg hover:shadow-2xl hover:bg-white/20 
+            transition-all duration-300"
+          >
+            <div className="p-3 rounded-full bg-white/20">
+              {item.icon}
+            </div>
+
+            <div>
+              <h1 className="text-gray-500 text-sm">{item.title}</h1>
+
+              {item.link ? (
+                <a href={item.link}>
+                  <p className="text-sm font-semibold hover:text-purple-400">
+                    {item.value}
+                  </p>
+                </a>
+              ) : (
+                <p className="text-sm font-semibold">{item.value}</p>
+              )}
+            </div>
+          </div>
+        ))}
+
+        {/* LANGUAGES (FULL WIDTH) */}
+        <div
+          className="md:col-span-2 p-6 rounded-2xl 
+          bg-white/10 backdrop-blur-lg border border-white/20 
+          shadow-lg hover:shadow-2xl hover:bg-white/20 
+          transition-all duration-300"
+        >
+          <h1 className="font-semibold text-gray-500 mb-3">Languages</h1>
+
+          <div className="flex flex-wrap gap-3">
+            {["English", "Hindi", "Marathi"].map((lang, i) => (
+              <span
+                key={i}
+                className="px-4 py-1 rounded-full text-sm bg-gray-100 dark:bg-white/20"
+              >
+                {lang}
+              </span>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
+    </motion.div>
+  )}
+
+</AnimatePresence>
+</div>
+
       </div>
     
     </div>

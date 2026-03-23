@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { motion } from "framer-motion";
+import { Github, Linkedin, LocationEditIcon, Mail, Phone } from 'lucide-react';
 
 const Footer = () => {
 
@@ -18,13 +19,12 @@ const text = "Kirti";
       <footer className="p-10 text-center border-t border-white/10 py-12  bg-gradient-to-br from-gray-100 via-white to-gray-200
           dark:bg-gradient-to-br dark:from-gray-900 dark:via-black dark:to-gray-800 text-lg">
 
-      <div className="my-10 max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8">
+        <div className="my-10 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-10 text-center md:text-left">
 
-        {/* Brand */}
-
-        <div className="flex flex-col md:w-1/3 text-start ">
+          {/* Brand */}
+          <div className="flex flex-col md:w-1/3 items-start md:items-start">
             <motion.h1
-              className="sm:text-5xl text-3xl md:text-4xl font-bold mb-4 leading-tight font-display flex gap-1"
+              className="sm:text-5xl text-3xl md:text-4xl font-bold mb-4 leading-tight font-display flex gap-1 flex-wrap justify-center md:justify-start"
             >
               {text.split("").map((char, index) => (
                 <motion.span
@@ -32,54 +32,90 @@ const text = "Kirti";
                   className="bg-gradient-to-t from-[#4158D0] via-[#C850C0] to-[#d382c8] bg-clip-text text-transparent"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * 0.05 }}  // faster animation
                 >
                   {char}
                 </motion.span>
               ))}
             </motion.h1>
-
-          <p className="text-gray-500 text-lg">
-            Thank You For Visiting our website. Please submit your suggestion & query using the contact form or connect with sales team.
-          </p>
-        </div>
+        
+            <p className="text-gray-500 text-lg max-w-sm">
+              Fullstack Developer with a passion for creating beautiful, responsive web applications.
+            </p>
+          </div>
+        
+          {/* Contact Us */}
+          <div className="flex flex-col md:w-1/3 items-start md:items-start">
+            <h3 className="text-xl font-semibold font-display mb-4">
+              Contact Us
+            </h3>
+        
+            <a
+              href="tel:+919209123023"
+              className="flex items-center gap-3 mb-3 hover:text-purple-400 transition"
+            >
+              <Phone size={20} />
+              <span>+91-9209123023</span>
+            </a>
+        
+            <a
+              href="mailto:kirtishinde3520@gmail.com"
+              className="flex items-center gap-3 mb-3 hover:text-purple-400 transition"
+            >
+              <Mail size={20} />
+              <span>kirtishinde3520@gmail.com</span>
+            </a>
 
         
- 
+            <div className="flex items-center gap-3 text-gray-500">
+              <LocationEditIcon size={20} />
+              <span>Chh. Sambhaji Nagar, Maharashtra - 431001</span>
+            </div>
 
-        {/* Useful Links */}
-        <div className="flex flex-col md:w-1/3 text-lg">
-          <h3 className="text-xl font-semibold font-display mb-2">Useful Links</h3>
-          <ul className=" space-y-1">
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <a 
-                  href={link.href} 
-                  className="hover:text-purple-400 transition-colors"
-                >
-                  {link.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
+
+          </div>
         
-        {/* Contact Us */}
-        <div className="flex flex-col md:w-1/3 text-lg">
-          <h3 className="text-xl font-semibold font-display mb-2">Contact Us</h3>
-          <p><a href="tel:+9209123023" className="hover:text-purple-400 transition-colors duration-300">+91-9209123023</a></p>
-          <p> 
-            <a href="mailto:kirtishinde3520@gmail.com" className="block hover:text-purple-400 transition-colors duration-300">
-              kirtishinde3520@gmail.com
-            </a></p>
-          <p className="text-gray-500 text-lg">Chh. Sambhaji Nagar , Maharashtra - 431001</p>
+          {/* Follow Me */}
+          <div className="flex flex-col md:w-1/3 items-start md:items-start">
+            <h3 className="text-xl font-semibold font-display mb-4">
+              Follow Me
+            </h3>
+        
+            <div className="flex gap-5 justify-start md:justify-start">
+              
+              <a
+                href="https://github.com/KirtiShinde18"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full border border-purple-300 hover:bg-purple-500 hover:text-white transition-all duration-300 hover:scale-110"
+              >
+                <Github size={20} />
+              </a>
+        
+              <a
+                href="https://www.linkedin.com/in/kirtishinde18/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full border border-purple-300 hover:bg-purple-500 hover:text-white transition-all duration-300 hover:scale-110"
+              >
+                <Linkedin size={20} />
+              </a>
+        
+              <a
+                href="mailto:kirtishinde3520@gmail.com"
+                className="p-3 rounded-full border border-purple-300 hover:bg-purple-500 hover:text-white transition-all duration-300 hover:scale-110"
+              >
+                <Mail size={20} />
+              </a>
+        
+            </div>
+          </div>
+
         </div>
 
-    </div>
-
-      <hr className="border border-white/10  text-center text-gray-500 mb-10 "/>
-      © 2026 Kirti Shinde . All rights Reserved. Design by <p className=" bg-gradient-to-r from-[#4158D0] via-[#C850C0] to-[#d382c8] bg-clip-text text-transparent"><b>Kreovate Studio</b></p>
-    </footer>
+        <hr className="border border-white/10  text-center text-gray-500 mb-10 "/>
+        © 2026 Kirti Shinde . All rights Reserved. Design by <p className=" bg-gradient-to-r from-[#4158D0] via-[#C850C0] to-[#d382c8] bg-clip-text text-transparent"><b>Kreovate Studio</b></p>
+      </footer>
   </>
 }
 

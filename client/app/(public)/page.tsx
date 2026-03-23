@@ -82,8 +82,8 @@ const projectsData = {
       desc: "A modern clothing eCommerce platform offering seamless shopping and a user-friendly experience",
       image: "/assets/images/project3.png",
       tech: ["React", "Next.js", "Node.js", "MongoDB"],
-      live: "https://e-saraswati.vercel.app/",
-      github: "https://github.com/KirtiShinde18/eSaraswati",
+      live: "",
+      github: "https://github.com/KirtiShinde18",
     },
 
   ]
@@ -149,7 +149,7 @@ const Home = () => (
   
                 {/* My Works */}
 
-                <a href="/projects" download className="w-full sm:w-auto">
+                <a href="/projects" className="w-full sm:w-auto">
                   <button className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-xl bg-gradient-to-r from-purple-300 to-indigo-300 text-black text-lg sm:text-xl font-semibold hover:scale-105 transition-transform duration-300 shadow-lg">
                     My Works 
                   </button>
@@ -196,13 +196,14 @@ const Home = () => (
       </div>
 
       {/* Scroll Down */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2">
-        <div className="flex flex-col items-center text-white">
+      <div className="hidden md:block absolute bottom-6 left-1/2 transform -translate-x-1/2">
+        <div className="flex flex-col items-center">
           <span className="animate-bounce text-3xl">
             <ChevronDown />
           </span>
         </div>
       </div>
+
     </div>
 
     {/* ===========================================================  ABOUT ===========================================================  */}
