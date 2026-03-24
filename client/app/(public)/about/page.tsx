@@ -12,16 +12,14 @@ const text = "About Me";
 const tabs = ["Bio", "Education", "Personal"];
 
 const About = () => {
-  const [activeTab, setActiveTab] = useState("Bio");
+  const [activeTab, setActiveTab] = useState("Education");
 
   return <>
   <div className="min-h-screen md:mt-10  flex items-center justify-center px-4">
   <div className="max-w-7xl mx-auto z-10 text-center">
 
     {/* HEADING */}
-    <motion.h1
-      className="mt-20 sm:text-5xl text-4xl md:text-7xl font-bold mb-4 leading-tight font-display text-center"
-    >
+    <motion.h1 className="sm:text-5xl mt-20 text-4xl md:text-7xl font-bold mb-4 leading-tight text-center">
       {text.split("").map((char, index) => (
         <motion.span
           key={index}

@@ -1,9 +1,89 @@
+"use client"
+
 import React from 'react'
+import { motion } from "framer-motion";
+import { ArrowRight } from 'lucide-react';
+
+const text = "Skills";
+
+const skillsData = {
+  skillTitle: "Skills",
+  skillsSubtitle: "Technologies I work with",
+
+  language: [
+    {label: "JavaScript"},
+    {label: "React"},
+    {label: "Node.js"},
+    {label: "TypeScript"},
+    {label: "Next.js"},
+    {label: "Express"},
+    {label: "MongoDB"},
+    {label: "Tailwind CSS"},
+    {label: "Redux"},
+    {label: "Git & GitHub"},
+    {label: "HTML"},
+    {label: "CSS"},
+    {label: "JWT"},
+    {label: "MySQL"},
+    {label: "Render"},
+    {label: "REST API"},
+    {label: "RTK"},
+    {label: "Cloudinary"},
+    {label: "shadcn/ui"},
+    {label: "Material UI"},
+    {label: "Docker"},
+    {label: "Postman"},
+    {label: "Firebase"},
+    {label: "Socket.io"},
+  ]
+}
 
 const Skills = () => {
-  return (
-    <div>Skills</div>
-  )
+  return <>
+  <div className="min-h-screen   flex items-center justify-center px-4">
+    <div className="max-w-7xl mx-auto z-10 text-center">
+      {/* HEADING */}
+    <motion.h1 className="sm:text-5xl mt-25 text-4xl md:text-7xl font-bold mb-4 leading-tight text-center">
+      {text.split("").map((char, index) => (
+        <motion.span
+          key={index}
+          className="inline-block bg-gradient-to-t from-[#4158D0] via-[#C850C0] to-[#d382c8] bg-clip-text text-transparent"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: index * 0.08 }}
+        >
+          {char === " " ? "\u00A0" : char}
+        </motion.span>
+      ))}
+    </motion.h1>
+    <p className='text-gray-400 text-2xl mt-2'>
+      {skillsData.skillsSubtitle}
+    </p>
+
+    {/* Bottom  */}
+    <div className="w-full overflow-hidden  rounded-2xl">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center p-20">
+        
+        {skillsData.language.map((item, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            viewport={{ once: true }}
+            className=" rounded-xl shadow-md p-6 bg-white/10"
+          >
+            <p className="mt-2 text-lg">{item.label}</p>
+          </motion.div>
+        ))}
+    
+        
+    
+      </div>
+    </div>
+    </div>
+  </div>
+  </>
 }
 
 export default Skills
