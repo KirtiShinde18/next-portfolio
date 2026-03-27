@@ -38,7 +38,7 @@ const skills = () => {
    <div className="min-h-screen md:mt-10  flex items-center justify-center px-4">
     <div className="max-w-7xl mx-auto z-10 text-center">
       {/* HEADING */}
-    <motion.h1 className="sm:text-5xl mt-20 text-4xl md:text-7xl font-bold mb-4 leading-tight text-center">
+    <motion.h1 className="sm:text-5xl mt-20 md:mt-5 text-4xl md:text-7xl font-bold mb-4 leading-tight text-center">
       {text.split("").map((char, index) => (
         <motion.span
           key={index}
@@ -58,7 +58,7 @@ const skills = () => {
     </p>
 
     {/* Bottom  */}
-    <div className="w-full overflow-hidden rounded-2xl p-10">
+    <div className="w-full overflow-hidden rounded-2xl">
   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6 text-center p-6 md:p-10 ">
 
     {skillsData.language.map((item, index) => (

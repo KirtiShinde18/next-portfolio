@@ -82,7 +82,12 @@ const Projects = () => {
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
                 // className={`px-5 py-2 rounded-full text-sm capitalize transition-all duration-300
-                className={`relative px-5 py-2 font-medium rounded-lg
+                className={`
+                  relative 
+    px-2 sm:px-4 md:px-5 
+    py-1.5 sm:py-2 
+    text-xs sm:text-sm md:text-base 
+    font-medium rounded-lg whitespace-nowrap
                   
                   ${
                     activeFilter === filter

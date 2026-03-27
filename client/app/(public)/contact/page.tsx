@@ -46,117 +46,30 @@ const Contact = () => {
       </motion.h1>
 
       {/* SUBTEXT */}
-      <p className="text-gray-400 text-xl md:text-2xl mt-2 mb-12">
+      <p className="text-gray-400 text-xl md:text-2xl mt-2 mb-0 md:mb-12">
         Let's get in touch
       </p>
 
-      <div className=' gap-6 grid grid-cols-1 lg:grid-cols-2 mb-10  p-10 items-center'>
+      <div className=' gap-6 grid grid-cols-1 lg:grid-cols-2 mb-10  p-5 items-center'>
         {/* left  */}
-        <div className=" 
-          w-full max-w-3xl 
-          
-          bg-white/70 dark:bg-white/10 
-          text-black dark:text-white
-          
-          backdrop-blur-xl 
-          
-          border border-black/10 dark:border-white/20 
-          
-          rounded-2xl shadow-xl 
-          p-10 md:p-16">
-  
-          {/* Title */}
-          <p className="text-start font-semibold text-2xl md:text-3xl">
-            Get In Touch
-          </p>
-
-          <div className='mt-10'>
-            {
-              contactData.map((item , index) => (
-                <div className='flex gap-5 items-center text-start mt-5' key={index}>
-                  {/* icon  */}
-                  <div className='bg-gray-200 dark:bg-white/20 p-3 m-2 rounded-full '>
-                    {item.icon}
-                  </div>
-
-                  {/* text  */}
-                  <div>
-                    <h1 className='font-bold text-xl'>{item.title}</h1>
-
-                    {item.link ? (
-                      <a href="{item.link}" className='text-lg text-gray-500 hover:text-black'>
-                        {item.value}
-                      </a>
-                    ): (
-                      <p className='text-lg text-gray-500'>{item.value}</p>
-                    )
-                  }
-                  </div>
-                </div>
-              ))
-            }
-          </div>
-
-
-          {/* follow me  */}
-          <h1 className='text-start text-xl font-bold my-6'>Follow me</h1>
-
-          <div className="flex gap-5 justify-start md:justify-start">
-                        
-            <a
-              href="https://github.com/KirtiShinde18"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-full border border-purple-300 hover:bg-gradient-to-r from-purple-300 to-indigo-300   transition-all duration-300 hover:scale-110"
-            >
-              <Github size={20} />
-            </a>
-      
-            <a
-              href="https://www.linkedin.com/in/kirtishinde18/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-full border border-purple-300 hover:bg-gradient-to-r from-purple-300 to-indigo-300   transition-all duration-300 hover:scale-110"
-            >
-              <Linkedin size={20} />
-            </a>
-      
-            <a
-              href="mailto:kirtishinde3520@gmail.com"
-              className="p-3 rounded-full border border-purple-300 hover:bg-gradient-to-r from-purple-300 to-indigo-300   transition-all duration-300 hover:scale-110"
-            >
-              <Mail size={20} />
-            </a>
-                  
-          </div>
-
-        </div>
-
-        
-
-        {/* right  */}
         <div className="
-          w-full max-w-3xl 
-          
-          bg-white/70 dark:bg-white/10 
-          text-black dark:text-white
-          
-          backdrop-blur-xl 
-          
-          border border-black/10 dark:border-white/20 
-          
-          rounded-2xl shadow-xl 
-          p-10 md:p-16">
+          w-full
+          md:max-w-lg md:mx-auto
+        bg-white/70 dark:bg-white/10 
+          rounded-none md:rounded-2xl 
+          shadow-none md:shadow-xl 
+          p-5 sm:p-6 md:p-8"
+         >
   
           {/* Title */}
-          <p className="text-center font-semibold text-2xl md:text-3xl">
+          <p className="text-center font-semibold text-xl md:text-3xl mb-5">
             Send Me a Message 💬
           </p>
       
           {/* Form */}
-          <div className="mt-10 space-y-6">
+          <div className=" space-y-6 ">
             
-            <FloatingInput label="Name" type="text" />
+            <FloatingInput label="Name" type="text"/>
             <FloatingInput label="Email" type="email" />
             <FloatingInput label="Subject" type="text" />
         
@@ -198,6 +111,18 @@ const Contact = () => {
         
           </div>
         </div>
+        
+
+        {/* right  */}
+        <div className="flex justify-center">
+          <img 
+            src="/contact.gif" 
+            alt="contact animation" 
+            className="w-full max-w-xl rounded-2xl"
+          />
+        </div>
+
+        
 
       </div>
 
