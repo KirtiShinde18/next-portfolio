@@ -50,8 +50,25 @@ const Contact = () => {
         Let's get in touch
       </p>
 
-      <div className=' gap-6 grid grid-cols-1 lg:grid-cols-2 mb-10  p-5 items-center'>
+      <div className=' gap-10 grid grid-cols-1 lg:grid-cols-2 mb-10  p-5 items-center'>
         {/* left  */}
+
+        <div className="lg:mr-10 xl:mr-20">
+          <img 
+            src="/contact.png" 
+            alt="contact animation" 
+            className="
+              w-3/4 sm:w-2/3 md:w-full 
+              max-w-xs sm:max-w-sm md:max-w-xl
+              mx-auto lg:mx-0
+              
+              drop-shadow-[0_10px_25px_rgba(0,0,0,0.4)] 
+              dark:drop-shadow-[0_15px_35px_rgba(0,0,0,0.9)]
+            "
+          />
+        </div>
+
+        {/* right  */}
         <div className="
           w-full
           md:max-w-lg md:mx-auto
@@ -112,15 +129,6 @@ const Contact = () => {
           </div>
         </div>
         
-
-        {/* right  */}
-        <div className="flex justify-center">
-          <img 
-            src="/contact.gif" 
-            alt="contact animation" 
-            className="w-full max-w-xl rounded-2xl"
-          />
-        </div>
 
         
 

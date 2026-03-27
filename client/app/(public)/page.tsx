@@ -324,6 +324,7 @@ const Home = () => (
           <p className='text-gray-400 text-2xl mt-2'>
             {skillsData.skillsSubtitle}
           </p>
+          
 
         </motion.div>
 

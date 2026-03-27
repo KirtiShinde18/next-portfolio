@@ -14,28 +14,20 @@ mongoose.connection.once("open", () => console.log("✅ DB connected"));
 
 // Middlewares
 app.use(cors({ origin: FRONTEND_URL, credentials: true }));
-app.use(express.json());
-app.use(cookieParser());
+app.use(express.json()); //👈 body parser middleware
+app.use(cookieParser()); 
 
 // -----------------------------
 // Routes
 // -----------------------------
 
-// Admin login route (public)
-// app.use("/admin", require("./routes/auth.routes")); // login & signout routes inside this router
-
-// Protected dashboard route
-// app.get("/admin/dashboard", adminProtect, (req, res) => {
-//   res.send(`Welcome Admin 🔥: ${req.admin.email}`);
-// });
-
-
-app.use("/admin", require("./routes/auth.routes.js"))
+// login & signout routes inside this router
+app.use("/admin", adminProtect, require("./routes/auth.routes.js"))
 
 // Test route
-app.get("/", (req, res) => {
-  res.status(200).json({ message: `Portfolio API Running in ${process.env.NODE_ENV} mode` });
-});
+// app.get("/api/admin", (req, res) => {
+//   res.status(200).json({ message: `Portfolio API Running in ${process.env.NODE_ENV} mode` });
+// });
 
 // Start server
 app.listen(process.env.PORT, () => {

@@ -69,7 +69,7 @@ const Experience = () => {
           {/* Animated Glow Line */}
           <motion.div
             style={{ height }}
-            className="absolute left-6 top-0 w-[2px] bg-gradient-to-b 
+            className="absolute left-6 top-0 w-[1px] bg-gradient-to-b 
             from-[#4158D0] via-[#C850C0] to-[#d382c8]
             shadow-[0_0_25px_rgba(168,85,247,0.8)] origin-top"
           />
@@ -97,20 +97,20 @@ const Experience = () => {
                 p-6 rounded-2xl shadow-lg hover:shadow-gray-500/30 transition-all duration-300"
               >
                 <p className="text-purple-400 text-sm sm:text-base md:text-lg font-medium">
-  {item.year}
-</p>
+                  {item.year}
+                </p>
 
-<h3 className="text-base sm:text-lg md:text-xl font-semibold mt-1">
-  {item.title}
-</h3>
-
-<p className="text-gray-400 text-sm sm:text-base md:text-lg">
-  {item.company}
-</p>
-
-<p className="text-gray-400 mt-2 text-sm sm:text-base md:text-lg leading-relaxed">
-  {item.desc}
-</p>
+                <h3 className="text-base sm:text-lg md:text-xl font-semibold mt-1">
+                  {item.title}
+                </h3>
+                
+                <p className="text-gray-400 text-sm sm:text-base md:text-lg">
+                  {item.company}
+                </p>
+                
+                <p className="text-gray-400 mt-2 text-sm sm:text-base md:text-lg leading-relaxed">
+                  {item.desc}
+                </p>
               </motion.div>
 
             </motion.div>
