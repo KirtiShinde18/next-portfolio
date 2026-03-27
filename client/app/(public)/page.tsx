@@ -69,12 +69,12 @@ const projectsData = {
     },
 
     {
-      title: "👚 Frienzied",
-      desc: "A modern clothing eCommerce platform offering seamless shopping and a user-friendly experience",
-      image: "/assets/images/project1.png",
+      title: "📋 Me Planner",
+      desc: "A minimal planner app built to manage your day effortlessly",
+      image: "/assets/images/project2.png",
       tech: ["React", "Next.js", "Node.js", "MongoDB"],
-      live: "https://e-saraswati.vercel.app/",
-      github: "https://github.com/KirtiShinde18/eSaraswati",
+      live: "https://meplanner.netlify.app/",
+      github: "https://github.com/KirtiShinde18",
     },
     
     {
@@ -162,7 +162,7 @@ const Home = () => (
                   href={profileData.social.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 flex items-center justify-center border border-purple-300 rounded-full hover:bg-purple-500 transition-all duration-300"
+                  className="w-12 h-12 flex items-center justify-center border border-purple-300 rounded-full hover:bg-gradient-to-r from-purple-300 to-indigo-300 hover:text-black transition-all duration-300"
                 >
                   <Github className="" size={24} />
                 </a>
@@ -171,7 +171,7 @@ const Home = () => (
                   href={profileData.social.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 flex items-center justify-center border border-purple-300 rounded-full hover:bg-purple-500 transition-all duration-300"
+                  className="w-12 h-12 flex items-center justify-center border border-purple-300 rounded-full hover:bg-gradient-to-r from-purple-300 to-indigo-300 hover:text-black transition-all duration-300"
                 >
                   <Linkedin className="" size={24} />
                 </a>
@@ -328,34 +328,26 @@ const Home = () => (
         </motion.div>
 
         {/* Bottom  */}
-        <div className="w-full overflow-hidden">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 text-center p-10">
-            {skillsData.language.map((item, index) => (
-              
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }} // 👈 stagger effect
-                viewport={{ once: true }}
-                className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-xl p-8 min-w-[100px]"
-              >
-                <p className="mt-2 text-lg">{item.label}</p>
-              </motion.div>
-        
-            ))}
-          </div>
+        <div className="w-full overflow-hidden rounded-2xl">
+  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 text-center p-6 md:p-10">
 
-          {/* button  */}
-          <div className="flex justify-center">
-            <a href="/skills">
-              <button className="my-10 flex items-center gap-2 px-4 py-2 rounded-xl border border-purple-400 font-semibold hover:scale-105 transition-transform duration-300 shadow-lg">
-                View All Skills <ArrowRight/>
-              </button>
-            </a>
-          </div>
+    {skillsData.language.map((item, index) => (
+      <motion.div
+        key={index}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: index * 0.1 }}
+        viewport={{ once: true }}
+        className="rounded-xl shadow-md p-3 md:p-5 bg-white/10"
+      >
+        <p className="mt-2 text-sm md:text-base lg:text-lg break-words">
+          {item.label}
+        </p>
+      </motion.div>
+    ))}
 
-        </div>
+  </div>
+</div>
 
       </div>
 
@@ -488,6 +480,7 @@ const Home = () => (
       </div>
     </div>
       
+
   </>
 )
 

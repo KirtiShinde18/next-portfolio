@@ -1,15 +1,11 @@
-"use client"
 
+
+"use client"
 import React from 'react'
-import { motion } from "framer-motion";
-import { ArrowRight } from 'lucide-react';
+import { motion, AnimatePresence } from "framer-motion";
 
 const text = "Skills";
-
 const skillsData = {
-  skillTitle: "Skills",
-  skillsSubtitle: "Technologies I work with",
-
   language: [
     {label: "JavaScript"},
     {label: "React"},
@@ -37,13 +33,12 @@ const skillsData = {
     {label: "Socket.io"},
   ]
 }
-
-const Skills = () => {
+const skills = () => {
   return <>
-  <div className="min-h-screen   flex items-center justify-center px-4">
+   <div className="min-h-screen md:mt-10  flex items-center justify-center px-4">
     <div className="max-w-7xl mx-auto z-10 text-center">
       {/* HEADING */}
-    <motion.h1 className="sm:text-5xl mt-25 text-4xl md:text-7xl font-bold mb-4 leading-tight text-center">
+    <motion.h1 className="sm:text-5xl mt-20 text-4xl md:text-7xl font-bold mb-4 leading-tight text-center">
       {text.split("").map((char, index) => (
         <motion.span
           key={index}
@@ -56,34 +51,36 @@ const Skills = () => {
         </motion.span>
       ))}
     </motion.h1>
-    <p className='text-gray-400 text-2xl mt-2'>
-      {skillsData.skillsSubtitle}
+
+    {/* SUBTEXT */}
+    <p className="text-gray-400 text-xl md:text-2xl mt-2 mb-12">
+      Technologies I work with
     </p>
 
     {/* Bottom  */}
-    <div className="w-full overflow-hidden  rounded-2xl">
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center p-20">
-        
-        {skillsData.language.map((item, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            viewport={{ once: true }}
-            className=" rounded-xl shadow-md p-6 bg-white/10"
-          >
-            <p className="mt-2 text-lg">{item.label}</p>
-          </motion.div>
-        ))}
-    
-        
-    
-      </div>
-    </div>
-    </div>
+    <div className="w-full overflow-hidden rounded-2xl p-10">
+  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6 text-center p-6 md:p-10 ">
+
+    {skillsData.language.map((item, index) => (
+      <motion.div
+        key={index}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: index * 0.1 }}
+        viewport={{ once: true }}
+        className="rounded-xl shadow-md p-4 md:p-6 bg-white/10"
+      >
+        <p className="mt-2 text-sm md:text-base lg:text-lg break-words">
+          {item.label}
+        </p>
+      </motion.div>
+    ))}
+
   </div>
+</div>
+    </div>
+   </div>
   </>
 }
 
-export default Skills
+export default skills

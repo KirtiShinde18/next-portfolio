@@ -14,7 +14,7 @@ const links = [
   { name: "Contact", href: "/contact" },
 ];
 
-const PublicNavbar = () => {
+const AdminNavbar = () => {
     const [open, setOpen] = useState(false);
     const pathname = usePathname();
 
@@ -27,7 +27,7 @@ const PublicNavbar = () => {
         <div className="flex items-center gap-3">
           {/* <img src="/logo.png" alt="Logo" className="w-12 h-12" /> */}
           <h1 className="text-3xl font-bold bg-gradient-to-r from-[#4158D0] via-[#C850C0] to-[#d382c8] bg-clip-text text-transparent">
-            Kirti
+            Admin Dashboard
           </h1>
         </div>
 
@@ -111,4 +111,4 @@ const PublicNavbar = () => {
   </>
 }
 
-export default PublicNavbar
+export default AdminNavbar

@@ -87,7 +87,7 @@ const text = "Kirti";
                 href="https://github.com/KirtiShinde18"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full border border-purple-300 hover:bg-purple-500 hover:text-white transition-all duration-300 hover:scale-110"
+                className="p-3 rounded-full border border-purple-300 hover:bg-gradient-to-r from-purple-300 to-indigo-300   transition-all duration-300 hover:scale-110"
               >
                 <Github size={20} />
               </a>
@@ -96,14 +96,14 @@ const text = "Kirti";
                 href="https://www.linkedin.com/in/kirtishinde18/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full border border-purple-300 hover:bg-purple-500 hover:text-white transition-all duration-300 hover:scale-110"
+                className="p-3 rounded-full border border-purple-300 hover:bg-gradient-to-r from-purple-300 to-indigo-300   transition-all duration-300 hover:scale-110"
               >
                 <Linkedin size={20} />
               </a>
         
               <a
                 href="mailto:kirtishinde3520@gmail.com"
-                className="p-3 rounded-full border border-purple-300 hover:bg-purple-500 hover:text-white transition-all duration-300 hover:scale-110"
+                className="p-3 rounded-full border border-purple-300 hover:bg-gradient-to-r from-purple-300 to-indigo-300   transition-all duration-300 hover:scale-110"
               >
                 <Mail size={20} />
               </a>

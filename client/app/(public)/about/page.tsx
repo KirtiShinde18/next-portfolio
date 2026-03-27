@@ -53,7 +53,7 @@ const About = () => {
       </div>
     
       {/* RIGHT - CONTENT */}
-      <div>
+      <div className='mt-10'>
         <h2 className="text-3xl md:text-5xl font-bold mb-4">
           Hello, I'm Kirti 👋🏻
         </h2>
@@ -68,7 +68,7 @@ const About = () => {
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className="relative px-5 py-2 font-medium"
+              className="relative px-5 py-2 font-medium bg-white/10 rounded-lg "
             >
               {activeTab === tab && (
                 <motion.div
@@ -88,9 +88,11 @@ const About = () => {
             </button>
           ))}
         </div>
+
+        
     
         {/* CONTENT */}
-<div className="relative min-h-[300px] md:min-h-[350px] transition-all duration-300">
+<div className="relative mt-10 min-h-[300px] md:min-h-[350px] transition-all duration-300">
   <AnimatePresence mode="wait">
   
   {/* BIO */}
@@ -177,7 +179,7 @@ const About = () => {
       transition={{ duration: 0.4 }}
     >
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2  gap-5">
 
         {/* CARD COMPONENT */}
         {[
