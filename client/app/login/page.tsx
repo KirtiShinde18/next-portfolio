@@ -28,8 +28,8 @@ const AdminLogin = () => {
 
   const {handleSubmit, register, reset, formState: { errors, touchedFields }} = useForm<SIGNIN_REQUEST>({
     defaultValues: {
-      email: "",
-      password: ""
+      email: "kirtishinde3520@gmail.com",
+      password: "kirti@123"
     },
     resolver: zodResolver(loginSchema)
   });
