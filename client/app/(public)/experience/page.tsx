@@ -2,6 +2,7 @@
 
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useGetExperienceQuery } from "@/redux/apis/admin.api";
 
 const text = "Experience";
 
@@ -27,6 +28,9 @@ const timelineData = [
 ];
 
 const Experience = () => {
+
+  const {data} = useGetExperienceQuery()
+
   const ref = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -75,7 +79,7 @@ const Experience = () => {
           />
 
           {/* ITEMS */}
-          {timelineData.map((item, index) => (
+          {data && data.result.map((item, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, x: -60 }}
@@ -97,15 +101,15 @@ const Experience = () => {
                 p-6 rounded-2xl shadow-lg hover:shadow-gray-500/30 transition-all duration-300"
               >
                 <p className="text-purple-400 text-sm sm:text-base md:text-lg font-medium">
-                  {item.year}
+                  {item.workingDate}
                 </p>
 
                 <h3 className="text-base sm:text-lg md:text-xl font-semibold mt-1">
-                  {item.title}
+                  {item.role}
                 </h3>
                 
                 <p className="text-gray-400 text-sm sm:text-base md:text-lg">
-                  {item.company}
+                  {item.companyName}
                 </p>
                 
                 <p className="text-gray-400 mt-2 text-sm sm:text-base md:text-lg leading-relaxed">

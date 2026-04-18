@@ -4,8 +4,10 @@ import "./globals.css";
 import PublicNavbar from "./_components/PublicNavbar";
 import Footer from "./_components/Footer";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/ReactToastify.css"
+// import "react-toastify/ReactToastify.css"
+import "react-toastify/dist/ReactToastify.css"
 import ReduxProvider from "@/redux/ReduxProvider";
+import { ThemeProvider } from "next-themes";
 
 
 
@@ -36,7 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en" 
+      lang="en"  suppressHydrationWarning
       // className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       // className={syne.className}
       className={`${syne.className}`}
@@ -45,14 +47,16 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
 
         {/* <div>mode : {process.env.NEXT_PUBLIC_ENV}</div> */}
+      <ThemeProvider>
 
         <ReduxProvider>
           <ToastContainer/>
 
-          <PublicNavbar/>
+          {/* <PublicNavbar/> */}
           {children}
           <Footer/>
         </ReduxProvider>
+      </ThemeProvider>
 
         </body>
     </html>

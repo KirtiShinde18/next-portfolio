@@ -11,5 +11,11 @@ module.exports = mongoose.model("profile", new mongoose.Schema({
     email: { type: String, required: true },
     mobile: { type: String, required: true },
     language: { type: String, required: true },
-    image: { type: String }, // Cloudinary Image URL
+    profileImage: { type: String }, // Cloudinary Image URL
+
+    yearExp: { type: String, required: true },
+    projectsCompleted: { type: String, required: true },
+    technologies: { type: String, required: true },
+    happyClients: { type: String, required: true },
+
 }, { timestamps: true }))

@@ -7,12 +7,15 @@ import Image from 'next/image';
 // image 
 import kirti from "./../../../public/assets/images/kirti.jpeg"
 import { Calendar, GraduationCap, LocationEdit, Mail, Phone } from 'lucide-react';
+import { useGetProfileQuery } from '@/redux/apis/admin.api';
 
 const text = "About Me";
 const tabs = ["Bio", "Education", "Personal"];
 
 const About = () => {
   const [activeTab, setActiveTab] = useState("Education");
+
+  const { data } = useGetProfileQuery()
 
   return <>
   <div className="min-h-screen md:mt-10  flex items-center justify-center px-4">
@@ -42,15 +45,16 @@ const About = () => {
     <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-left mb-10">
     
       {/* LEFT - IMAGE */}
-      <div className="relative w-full max-w-[220px] h-[260px] sm:max-w-[260px] sm:h-[300px] md:max-w-[320px] md:h-[380px] lg:max-w-[400px] lg:h-[450px] mx-auto">
-        <Image
-          src={kirti}
-          alt="Kirti Shinde"
-          fill
-          className="object-cover object-center rounded-2xl shadow-xl"
-          priority
-        />
-      </div>
+      {
+        data && data.result.map(item => (
+          <div 
+            key={item._id}
+            className="relative w-full max-w-[220px] h-[260px] sm:max-w-[260px] sm:h-[300px] md:max-w-[320px] md:h-[380px] lg:max-w-[400px] lg:h-[450px] mx-auto">
+              <img src={item.profileImage} alt="" className='object-cover object-center rounded-2xl shadow-xl'/>
+          </div>
+        ))
+      }
+      
     
       {/* RIGHT - CONTENT */}
       <div className='mt-10'>
@@ -73,7 +77,7 @@ const About = () => {
               {activeTab === tab && (
                 <motion.div
                   layoutId="activeTab"
-                  className="absolute inset-0 bg-gradient-to-r from-purple-300 to-indigo-300 px-4 py-2 rounded-lg "
+                  className="absolute inset-0 bg-gradient-to-r from-purple-200 to-indigo-200 px-4 py-2 rounded-lg "
                   transition={{ type: "spring", stiffness: 300, damping: 25 }}
                 />
               )}
@@ -92,7 +96,9 @@ const About = () => {
         
     
         {/* CONTENT */}
-<div className="relative mt-10 min-h-[300px] md:min-h-[350px] transition-all duration-300">
+        {
+          data && data.result.map(item => (
+            <div key={item._id} className="relative mt-10 min-h-[300px] md:min-h-[350px] transition-all duration-300">
   <AnimatePresence mode="wait">
   
   {/* BIO */}
@@ -106,19 +112,15 @@ const About = () => {
       className="text-lg leading-relaxed"
     >
       <p>
-        I’m a passionate Full-Stack Developer with a strong focus on building modern,
-        scalable, and user-centric web applications. I specialize in frontend development
-        using React, creating responsive and intuitive interfaces that deliver great user experiences.
+        {item.bio}
       </p>
 
       <p className="mt-4">
-        Alongside frontend expertise, I work extensively on backend development, designing
-        secure APIs, managing databases, and ensuring smooth integration between systems.
+        {item.journey}
       </p>
 
       <p className="mt-4">
-        With a solid understanding of both frontend and backend technologies, I enjoy
-        solving complex problems and turning ideas into functional, high-quality products.
+        {item.work}
       </p>
     </motion.div>
   )}
@@ -243,6 +245,9 @@ const About = () => {
 
 </AnimatePresence>
 </div>
+
+          ))
+        }
 
       </div>
     

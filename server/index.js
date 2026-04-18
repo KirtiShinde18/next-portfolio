@@ -22,12 +22,19 @@ app.use(cookieParser());
 // -----------------------------
 
 // login & signout routes inside this router
-app.use("/admin", adminProtect, require("./routes/auth.routes.js"))
+// existing
+app.use("/api/auth", require("./routes/auth.routes.js"))
+app.use("/api/admin", require("./routes/admin.routes.js"))
 
 // Test route
-// app.get("/api/admin", (req, res) => {
-//   res.status(200).json({ message: `Portfolio API Running in ${process.env.NODE_ENV} mode` });
-// });
+app.get("/", (req, res) => {
+  res.status(200).json({ message: `Portfolio API Running in ${process.env.NODE_ENV} mode` });
+});
+
+// test 
+app.get("/api/admin/profile", (req, res) => {
+  res.json({ message: "Profile route works!" });
+});
 
 // Start server
 app.listen(process.env.PORT, () => {

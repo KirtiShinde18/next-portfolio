@@ -4,29 +4,60 @@ import React from 'react'
 import { motion } from "framer-motion";
 import FloatingInput from '@/app/_components/FloatingInput';
 import { Github, Linkedin, LocationEdit, Mail, Phone } from 'lucide-react';
+import { useAddContactMutation } from '@/redux/apis/admin.api';
+import z from 'zod';
+import { CREATE_CONTACT_REQUEST } from '@/types/Contact';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { toast } from 'react-toastify';
+import clsx from 'clsx';
 
 const text = "Contact";
-const contactData = [
-  {
-    icon: <Mail />,
-    title: "Email",
-    value: "kirtishinde3520@gmail.com",
-    link: "mailto:kirtishinde3520@gmail.com",
-  },
-  {
-    icon: <Phone />,
-    title: "Phone",
-    value: "+91-9209123023",
-    link: "tel:+919209123023",
-  },
-  {
-    icon: <LocationEdit />,
-    title: "Location",
-    value: "Chhatrapati Sambhaji Nagar, Maharashtra, India",
-  },
-]
 
 const Contact = () => {
+
+  const [addContact, { isLoading }] = useAddContactMutation()
+
+  // zod schema
+  const contactSchema = z.object({
+    name: z.string().min(1),
+    email: z.string().min(1).email(),
+    message: z.string().min(1),
+    
+  }) satisfies z.ZodType<CREATE_CONTACT_REQUEST>
+
+
+  const { handleSubmit, reset, register, formState: {errors, touchedFields}} = useForm<CREATE_CONTACT_REQUEST>({
+    defaultValues : {
+      name: "",
+      email: "",
+      message: "",
+    },
+    resolver : zodResolver(contactSchema)
+  })
+
+  // handle contact 
+  const handleContact = async (data: CREATE_CONTACT_REQUEST) => {
+        try {
+            await addContact(data).unwrap()
+            toast.success("Message sent successfully 🎉")
+            reset()
+        } catch (error) {
+            console.log(error)
+            toast.error("unable to fetch contact")
+        }
+    }
+
+  // HANDLE CLASSES 
+  const handleClasses = (key: keyof CREATE_CONTACT_REQUEST ) =>
+  clsx(
+    "peer w-full px-3 pt-5 pb-2 rounded-lg border outline-none transition-all duration-200",
+    "border-gray-300 hover:border-gray-400",
+    "focus:border-gray-400 focus:ring-2 focus:ring-gray-200",
+    errors[key] && "border-red-500 focus:ring-red-200",
+    touchedFields[key] && !errors[key] && "border-green-500 focus:ring-green-200"
+  )
+
   return <>
   <div className="min-h-screen md:mt-5  flex items-center justify-center px-4">
     <div className="max-w-7xl mx-auto z-10 text-center my-5">
@@ -73,9 +104,9 @@ const Contact = () => {
           w-full
           md:max-w-lg md:mx-auto
         bg-white/70 dark:bg-white/10 
-          rounded-none md:rounded-2xl 
+          rounded-2xl md:rounded-2xl 
           shadow-none md:shadow-xl 
-          p-5 sm:p-6 md:p-8"
+          p-5 sm:p-6 md:p-8  "
          >
   
           {/* Title */}
@@ -84,14 +115,16 @@ const Contact = () => {
           </p>
       
           {/* Form */}
-          <div className=" space-y-6 ">
+          <form onSubmit={handleSubmit(handleContact)}>
+            <div className=" space-y-6 ">
             
-            <FloatingInput label="Name" type="text"/>
-            <FloatingInput label="Email" type="email" />
-            <FloatingInput label="Subject" type="text" />
+          
+            <FloatingInput label="Name" type="text" {...register("name")} />
+            <FloatingInput label="Email" type="email" {...register("email")} />
         
             {/* Textarea */}
             <textarea
+              {...register("message")}
               rows={5}
               placeholder="Enter your message..."
               className="
@@ -115,7 +148,9 @@ const Contact = () => {
             />
         
             {/* Button */}
-            <button className="
+            <button
+             type='submit'
+             className="
               w-full py-4 
               text-lg text-black
               bg-gradient-to-r from-purple-300 to-indigo-300 
@@ -123,10 +158,14 @@ const Contact = () => {
               hover:scale-105 hover:opacity-90 
               transition-all duration-300
             ">
-              Send Message 🚀
+              {
+                isLoading ? "Sending..." : "Send Message 🚀"
+              }
             </button>
         
           </div>
+
+          </form>
         </div>
         
 

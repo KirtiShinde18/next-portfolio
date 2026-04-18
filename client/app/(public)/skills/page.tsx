@@ -1,39 +1,42 @@
 
-
 "use client"
 import React from 'react'
 import { motion, AnimatePresence } from "framer-motion";
+import { useGetSkillQuery } from '@/redux/apis/admin.api';
 
 const text = "Skills";
-const skillsData = {
-  language: [
-    {label: "JavaScript"},
-    {label: "React"},
-    {label: "Node.js"},
-    {label: "TypeScript"},
-    {label: "Next.js"},
-    {label: "Express"},
-    {label: "MongoDB"},
-    {label: "Tailwind CSS"},
-    {label: "Redux"},
-    {label: "Git & GitHub"},
-    {label: "HTML"},
-    {label: "CSS"},
-    {label: "JWT"},
-    {label: "MySQL"},
-    {label: "Render"},
-    {label: "REST API"},
-    {label: "RTK"},
-    {label: "Cloudinary"},
-    {label: "shadcn/ui"},
-    {label: "Material UI"},
-    {label: "Docker"},
-    {label: "Postman"},
-    {label: "Firebase"},
-    {label: "Socket.io"},
-  ]
-}
+// const skillsData = {
+//   language: [
+//     {label: "JavaScript"},
+//     {label: "React"},
+//     {label: "Node.js"},
+//     {label: "TypeScript"},
+//     {label: "Next.js"},
+//     {label: "Express"},
+//     {label: "MongoDB"},
+//     {label: "Tailwind CSS"},
+//     {label: "Redux"},
+//     {label: "Git & GitHub"},
+//     {label: "HTML"},
+//     {label: "CSS"},
+//     {label: "JWT"},
+//     {label: "MySQL"},
+//     {label: "Render"},
+//     {label: "REST API"},
+//     {label: "RTK"},
+//     {label: "Cloudinary"},
+//     {label: "shadcn/ui"},
+//     {label: "Material UI"},
+//     {label: "Docker"},
+//     {label: "Postman"},
+//     {label: "Firebase"},
+//     {label: "Socket.io"},
+//   ]
+// }
 const skills = () => {
+
+  const {data} = useGetSkillQuery()
+
   return <>
    <div className="min-h-screen md:mt-10  flex items-center justify-center px-4">
     <div className="max-w-7xl mx-auto z-10 text-center">
@@ -60,10 +63,11 @@ const skills = () => {
     {/* Bottom  */}
     <div className="w-full overflow-hidden rounded-2xl">
     <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6 text-center p-6 md:p-10 ">
-  
-      {skillsData.language.map((item, index) => (
+
+      {
+        data && data.result.map((item, index) => (
         <motion.div
-          key={index}
+          key={index || item._id}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -72,10 +76,13 @@ const skills = () => {
         >
           <p className="mt-2 text-sm md:text-base lg:text-lg 
             whitespace-nowrap overflow-hidden text-ellipsis">
-           {item.label}
+           {item.skill}
           </p>
-      </motion.div>
-    ))}
+        </motion.div>
+        ))
+      }
+  
+
 
   </div>
 </div>

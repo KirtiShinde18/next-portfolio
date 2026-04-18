@@ -1,50 +1,72 @@
-// controllers/admin.controller.js
+// // controllers/admin.controller.js
 
-const Admin = require("../models/Admin");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const { PRODUCTION } = require("../utils/config");
+const { isEmail } = require("validator")
+
+const Admin = require("../models/Admin")
+const jwt = require("jsonwebtoken")
+const bcrypt = require("bcryptjs")
 
 //=================================== SIGNIN ===================================
-exports.adminLogin = async (req, res) => {
+exports.loginAdmin = async (req , res) => {
   try {
-    const { email, password } = req.body;
+    const {email, password} = req.body
 
-    // 1. check admin
-    const admin = await Admin.findOne({ email });
-    if (!admin) {
-      return res.status(404).json({ message: "Admin not found"});
+    // 1. Check Email and Password
+    if(!email || !password){
+      return res.status(400).json({message: "Email and Password are Required"})
+    }
+    
+    // 2. Email Checking
+    if(!isEmail(email)){
+      return res.status(400).json({message: "Invalid Email"})
+
     }
 
-    // 2. check password
-    const isMatch = await bcrypt.compare(password, admin.password);
-    if (!isMatch) {
-      return res.status(400).json({ message: "Invalid password" });
+    // 3. Check if user exists in database using email
+    const result = await Admin.findOne({email})
+
+    // If user not found, return error message
+    if(!result) {
+      return res.status(401).json({
+        message: process.env.NODE_ENV === "production"
+        ? "Invalid Credentials" // Production -> generic message
+        : "Email Not Found" // Development -> exact issue
+      })
+     
     }
 
-    // 3. generate token
-    const token = jwt.sign(
-      { _id: admin._id },          // only admin ID
-      process.env.JWT_KEY,         // secret key
-      { expiresIn: "1d" }          // token valid for 1 day
-    );
+    // 4. Compare entered password with hashed password in DB
+    const verify = await bcrypt.compare(password, result.password)
 
-    // 4. set cookie ✅
-    res.cookie("ADMIN", token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production", // false for dev
-      sameSite: "lax",                               // allow sending cookies cross-origin
-      maxAge: 1000 * 60 * 60 * 24                    // 1 day
-    });
+    // If password doesn't match, return error
+    if(!verify){
+      return res.status(401).json({
+        message: process.env.NODE_ENV === "production"
+        ? "Invalid Credentials"
+        : "Invalid Password"
+      })
+    }
 
-    // 5. response
-    res.status(200).json({ message: "Login Successfull" });
+    // 5. Generate JWT token with user/admin ID
+    const token = jwt.sign({_id: result._id}, process.env.JWT_KEY, { expiresIn: "1d" })
 
+    // Send token in HTTP-only cookie
+    res.cookie("ADMIN", token , {
+      httpOnly: true, // Prevent access from js (🔐 security)
+      secure: process.env.NODE_ENV === "production", // Only send cookie over HTTPS in production
+      sameSite: "strict",
+      maxAge: 1000 * 60 * 60 * 24 // 24 hours
+    })
+    res.status(200).json({message: "Admin Signin Successful", result: {
+      email: result.email,
+      password: result.password,
+    }})
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: "Server Error" });
+    res.status(500).json({message: "Unable signin"})
+    
   }
-};
+}
 
 //=================================== SIGNOUT ===================================
 exports.signoutAdmin = async (req, res) => {
@@ -56,3 +78,4 @@ exports.signoutAdmin = async (req, res) => {
     res.status(500).json({ message: "unable to signout admin" });
   }
 }
+

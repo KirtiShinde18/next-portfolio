@@ -1,9 +1,8 @@
-// models/Admin.js
-const mongoose = require("mongoose");
 
-const adminSchema = new mongoose.Schema({
-  email: { type: String, unique: true },
-  password: String
-});
+const mongoose = require("mongoose")
+module.exports = mongoose.model("user", new mongoose.Schema({
+  email: {type : String, required: true },
+  password: {type : String, required: true },
 
-module.exports = mongoose.model("Admin", adminSchema);
+  // role: {type : String, default: "admin"},
+}, {timestamps:true}))

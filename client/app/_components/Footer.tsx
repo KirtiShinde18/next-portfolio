@@ -3,8 +3,11 @@
 import React from 'react'
 import { motion } from "framer-motion";
 import { Github, Linkedin, LocationEditIcon, Mail, Phone } from 'lucide-react';
+import { useGetProfileQuery } from '@/redux/apis/admin.api';
 
 const Footer = () => {
+
+  const { data } = useGetProfileQuery()
 
   const navLinks = [
   { name: "Home", href: "/" },
@@ -12,6 +15,7 @@ const Footer = () => {
   { name: "Features", href: "/#features" },
   { name: "Contact", href: "/#contact" },
 ];
+const profile = data?.result
 
 const text = "Kirti";
 
@@ -45,35 +49,37 @@ const text = "Kirti";
           </div>
         
           {/* Contact Us */}
-          <div className="flex flex-col md:w-1/3 items-start md:items-start">
+          {
+            data && data.result.map(item => <div className="flex flex-col md:w-1/3 items-start md:items-start" key={item._id}>
             <h3 className="text-xl font-semibold font-display mb-4">
               Contact Us
             </h3>
         
             <a
-              href="tel:+919209123023"
+              href={`tel:${item.mobile}`}
               className="flex items-center gap-3 mb-3 hover:text-purple-400 transition"
             >
               <Phone size={20} />
-              <span>+91-9209123023</span>
+              <span>{item.mobile}</span>
             </a>
         
             <a
-              href="mailto:kirtishinde3520@gmail.com"
+              href={`mailto:${item.email}`}
               className="flex items-center gap-3 mb-3 hover:text-purple-400 transition"
             >
               <Mail size={20} />
-              <span>kirtishinde3520@gmail.com</span>
+              <span>{item.email}</span>
             </a>
 
         
             <div className="flex items-center gap-3 text-gray-500">
               <LocationEditIcon size={20} />
-              <span>Chh. Sambhaji Nagar, Maharashtra - 431001</span>
+              <span>{item.location}</span>
             </div>
 
 
-          </div>
+          </div>)
+          }
         
           {/* Follow Me */}
           <div className="flex flex-col md:w-1/3 items-start md:items-start">

@@ -1,42 +1,49 @@
 import { SIGNIN_REQUEST, SIGNIN_RESPONSE } from "@/types/Auth";
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
-import { removeStorage } from "../utils/authStorage";
 import { APP_URL } from "@/constants/config";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
 export const authApi = createApi({
-  reducerPath: "authApi",
-  baseQuery: fetchBaseQuery({
-    // baseUrl: "http://localhost:5500",
-    baseUrl: `${APP_URL}/admin`,
-    credentials: "include" // 🔥 important for cookies
-  }),
-
-  endpoints: (builder) => ({
-
-    // 🔐 Signin
-    signin: builder.mutation<SIGNIN_RESPONSE, SIGNIN_REQUEST>({
-      query: (userData) => ({
-        url: "/",
-        method: "POST",
-        body: userData
-      })
+    reducerPath: "authApi",
+    baseQuery: fetchBaseQuery({ 
+      // baseUrl: `${APP_URL}/admin`,
+      baseUrl: `${APP_URL}/api/auth`,
+      credentials: "include" // 🔥 important for cookies
     }),
 
-    // 🔓 Admin Signout
-    signoutAdmin: builder.mutation<void, void>({
-      query: () => ({
-        url: "/signout", // POST /admin/signout
-        method: "POST",
-      }),
-      transformResponse: () => {
-        removeStorage("admin"); // clear localStorage/session if used
-      },
-    }),
+    endpoints: (builder) => {
+        return {
 
-  })
-});
+            // 🔐 Signin
+            signin: builder.mutation<SIGNIN_RESPONSE, SIGNIN_REQUEST>({
+                query: userData => {
+                    return {
+                        url: "/signin",
+                        method: "POST",
+                        body: userData
+                    }
+                },
+
+         
+            }),
+
+            // 🔐 Signout
+            signout: builder.mutation<void, void>({
+                query: userData => {
+                    return {
+                        url: "/signout",
+                        method: "POST",
+                        body: userData
+                    }
+                },
+
+            }),
+        
+        }
+    }
+})
 
 export const { 
-    useSigninMutation,
-    useSignoutAdminMutation,
+  useSigninMutation,
+  useSignoutMutation
 } = authApi
+

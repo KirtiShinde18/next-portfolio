@@ -4,6 +4,7 @@ import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useState } from 'react'
+import ThemeToggle from './ThemeToggle';
 
 const links = [
   { name: "Home", href: "/" },
@@ -29,7 +30,10 @@ const PublicNavbar = () => {
           <h1 className="text-3xl font-bold bg-gradient-to-r from-[#4158D0] via-[#C850C0] to-[#d382c8] bg-clip-text text-transparent">
             Kirti
           </h1>
+          
         </div>
+
+        
 
         {/* Desktop Menu */}
         {/* <div className="hidden md:flex gap-8 text-lg text-gray-300"> */}
@@ -56,10 +60,12 @@ const PublicNavbar = () => {
           })}
         </div>
 
+        {/* <ThemeToggle></ThemeToggle> */}
+
         {/* Desktop Button */}
         <div className="hidden md:flex gap-3">
           <Link href="/contact">
-            <button className="bg-gradient-to-r from-purple-300 to-indigo-300 px-4 py-2 rounded-lg text-black hover:scale-105 hover:opacity-90 
+            <button className="bg-gradient-to-r from-purple-200 to-indigo-200 px-4 py-2 rounded-lg text-black hover:scale-105 hover:opacity-90 
               transition-all duration-300">
               Get Started
             </button>
@@ -106,6 +112,8 @@ const PublicNavbar = () => {
           
         </div>
       )}
+
+      
       
     </nav>
   </>
