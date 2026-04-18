@@ -5,6 +5,7 @@ const { isEmail } = require("validator")
 const Admin = require("../models/Admin")
 const jwt = require("jsonwebtoken")
 const bcrypt = require("bcryptjs")
+const User = require("../models/User")
 
 //=================================== SIGNIN ===================================
 exports.signin = async (req, res) => {
