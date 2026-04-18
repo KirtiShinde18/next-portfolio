@@ -32,7 +32,7 @@ export const authApi = createApi({
                     return {
                         url: "/signout",
                         method: "POST",
-                        body: userData
+                        // body: userData
                     }
                 },
 
