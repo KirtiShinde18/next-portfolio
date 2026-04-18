@@ -5,6 +5,6 @@
 
 // module.exports = { PRODUCTION, FRONTEND_URL };
 
-module.exports.FRONTEDN_URL = process.env.NODE_ENV === "production"
+module.exports.FRONTEND_URL = process.env.NODE_ENV === "production"
     ? process.env.LIVE_URL
     : process.env.LOCAL_URL
