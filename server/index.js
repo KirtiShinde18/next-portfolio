@@ -13,10 +13,7 @@ mongoose.connect(process.env.MONGO_URL);
 mongoose.connection.once("open", () => console.log("✅ DB connected"));
 
 // Middlewares
-app.use(cors({ 
-  // origin: FRONTEND_URL, 
-  origin: "https://next-portfolio-client-delta.vercel.app", 
-  credentials: true }));
+app.use(cors({ origin: FRONTEND_URL, credentials: true }));
 app.use(express.json()); //👈 body parser middleware
 app.use(cookieParser()); 
 
