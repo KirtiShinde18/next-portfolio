@@ -5,6 +5,7 @@ const { isEmail } = require("validator")
 const Admin = require("../models/Admin")
 const jwt = require("jsonwebtoken")
 const bcrypt = require("bcryptjs")
+const { FRONTEND_URL } = require("../utils/config")
 
 //=================================== SIGNIN ===================================
 exports.loginAdmin = async (req , res) => {
@@ -54,9 +55,13 @@ exports.loginAdmin = async (req , res) => {
     res.cookie("ADMIN", token , {
       httpOnly: true, // Prevent access from js (🔐 security)
       secure: process.env.NODE_ENV === "production", // Only send cookie over HTTPS in production
-      sameSite: "lax",
+      sameSite: "none",
+      domain: FRONTEND_URL, 
+      path:"/",
       maxAge: 1000 * 60 * 60 * 24 // 24 hours
+
     })
+    
     res.status(200).json({message: "Admin Signin Successful", result: {
       email: result.email,
       password: result.password,
