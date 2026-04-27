@@ -11,7 +11,7 @@ const reduxStore = configureStore({
         [adminApi.reducerPath]: adminApi.reducer,
 
     },
-     devTools: process.env.NEXT_PUBLIC_ENV !== "production",
+    devTools: process.env.NEXT_PUBLIC_ENV !== "production",
     middleware: def => def().concat(authApi.middleware, adminApi.middleware)
 })
 
