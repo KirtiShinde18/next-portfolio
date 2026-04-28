@@ -8,6 +8,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"
 import ReduxProvider from "@/redux/ReduxProvider";
 import { ThemeProvider } from "next-themes";
+import Loader from "./_components/Loader";
 
 
 
@@ -45,6 +46,8 @@ export default function RootLayout({
     >
 
       <body className="min-h-full flex flex-col">
+
+        <Loader />   {/* 🌸 loader */}
 
         {/* <div>mode : {process.env.NEXT_PUBLIC_ENV}</div> */}
       <ThemeProvider>
