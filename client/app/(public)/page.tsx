@@ -34,7 +34,7 @@ const Home = () => {
                 </h1>
 
                 <p
-                  className="sm:text-4xl text-3xl md:text-4xl font-bold mb-4 leading-tight font-display "
+                  className="sm:text-4xl text-xl md:text-4xl font-bold mb-4 leading-tight font-display "
                 >
                   {item.title.split("").map((char, index) => (
                     <motion.span

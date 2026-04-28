@@ -55,7 +55,7 @@ exports.loginAdmin = async (req , res) => {
     res.cookie("ADMIN", token , {
       httpOnly: true, // Prevent access from js (🔐 security)
       secure: process.env.NODE_ENV === "production", // Only send cookie over HTTPS in production
-      sameSite: "none",
+      // sameSite: "none",
       // domain: FRONTEND_URL, 
       // path:"/",
       maxAge: 1000 * 60 * 60 * 24 // 24 hours

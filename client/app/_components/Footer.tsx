@@ -23,7 +23,7 @@ const text = "Kirti";
       <footer className="p-10 text-center border-t border-white/10 py-12  bg-gradient-to-br from-gray-100 via-white to-gray-200
           dark:bg-gradient-to-br dark:from-gray-900 dark:via-black dark:to-gray-800 text-lg">
 
-        <div className="my-10 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-10 text-center md:text-left">
+        <div className="my-10 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-10  md:text-left">
 
           {/* Brand */}
           <div className="flex flex-col md:w-1/3 items-start md:items-start">
@@ -43,7 +43,7 @@ const text = "Kirti";
               ))}
             </motion.h1>
         
-            <p className="text-gray-500 text-lg max-w-sm">
+            <p className="text-gray-500 text-lg max-w-sm text-start ">
               Fullstack Developer with a passion for creating beautiful, responsive web applications.
             </p>
           </div>
@@ -71,11 +71,19 @@ const text = "Kirti";
               <span>{item.email}</span>
             </a>
 
+            <a
+              href= "https://maps.app.goo.gl/Y5BfSbUaJRTjwnPK7"
+              className="flex items-center gap-3 mb-3 hover:text-purple-400 transition text-start"
+            >
+              <Mail size={20} />
+              <span>{item.location}</span>
+            </a>
+
         
-            <div className="flex items-center gap-3 text-gray-500">
+            {/* <div className="flex items-center gap-3 text-gray-500 text-start">
               <LocationEditIcon size={20} />
               <span>{item.location}</span>
-            </div>
+            </div> */}
 
 
           </div>)
