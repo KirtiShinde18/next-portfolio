@@ -1,4 +1,5 @@
-<a name="readme-top"></a>
+
+<a id="readme-top"></a>
 
 # 🌸 Kirti Shinde – Portfolio using Next.JS
 
@@ -13,11 +14,27 @@ This project showcases my work, skills, and projects as a developer.
   />
 </p>
 
-## 🚀 Live Demo
-[![Live Portfolio](https://img.shields.io/badge/🌸%20Live%20Portfolio-Visit%20Now-ff69b4?style=for-the-badge)](https://kirti-portfolio-client.vercel.app/)
 
-## 🛠️ Tech Stack
-[![React JS](https://skillicons.dev/icons?i=react "React JS")](https://react.dev/ "React JS") [![Next JS](https://skillicons.dev/icons?i=next "Next JS")](https://nextjs.org/ "Next JS") [![Typescript](https://skillicons.dev/icons?i=ts "Typescript")](https://www.typescriptlang.org/ "Typescript") [![Tailwind CSS](https://skillicons.dev/icons?i=tailwind "Tailwind CSS")](https://tailwindcss.com/ "Tailwind CSS") [![Vercel](https://skillicons.dev/icons?i=vercel "Vercel")](https://vercel.app/ "Vercel")
+## 🚀✨ Live Demo
+
+<p align="center">
+  <a href="https://kirti-portfolio-client.vercel.app/">
+    <img src="https://img.shields.io/badge/🌸%20Live%20Portfolio-Visit%20Now-ff69b4?style=for-the-badge" />
+  </a>
+</p>
+
+---
+
+## 💻✨ Tech Stack
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=react,next,ts,tailwind,vercel" />
+</p>
+
+<p align="center">
+  💖 Built with love using modern web technologies ✨
+</p>
+
 
 ## 📂 Folder Structure
 
@@ -113,21 +130,49 @@ Follow these steps to run the project locally 💻💖
 ### 🌸 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/KirtiShinde18/next-portfolio.git
+cd next-portfolio
 ```
 
 ---
 
-### 🎀 2. Install Dependencies
+### 🎀 2. Setup Backend (Server)
 
 ```bash
+cd server
 npm install
 ```
 
+Create a `.env` file inside `/server`:
+
+```env
+PORT=5000
+MONGO_URI=your_mongodb_connection
+JWT_SECRET=your_secret_key
+```
+
+Run backend:
+
+```bash
+npm run dev
+```
+
 ---
 
-### ⚡ 3. Run the Development Server
+### 💖 3. Setup Frontend (Client)
+
+```bash
+cd ../client
+npm install
+```
+
+Create a `.env` file inside `/client`:
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:5000
+```
+
+Run frontend:
 
 ```bash
 npm run dev
@@ -137,18 +182,27 @@ npm run dev
 
 ### 🌐 4. Open in Browser
 
-Visit 👉 http://localhost:3000
+Frontend 👉 http://localhost:3000
+Backend 👉 http://localhost:5000
 
 ---
 
 ### 💡 Notes
 
-* Make sure you have **Node.js** installed 🟢
-* You can use **npm / yarn / pnpm**
-* For production build:
+* Make sure **Node.js** is installed 🟢
+* Run **client & server in separate terminals** ⚡
+* Uses **Next.js + Express + MongoDB**
+
+---
+
+### 🚀 Production Build
 
 ```bash
+# client
 npm run build
+npm start
+
+# server
 npm start
 ```
 
@@ -194,4 +248,38 @@ npm start
 
 <p align="center">
   🌸 Clean UI • Responsive • Admin Dashboard 💻✨
+</p>
+
+## 🚀✨ Deploy on Vercel
+
+The easiest way to deploy this **Next.js portfolio** is using **Vercel** 💖
+
+---
+
+### 🌷 Steps
+
+1. Go to 👉 https://vercel.com
+2. Import your GitHub repository
+3. Select the **client** folder as root
+4. Add environment variables
+5. Click **Deploy** ✨
+
+---
+
+### 💡 Why Vercel?
+
+* ⚡ Built for Next.js
+* 🚀 Super fast deployment
+* 🔄 Automatic updates on push
+* 🌐 Free & easy to use
+
+---
+
+<p align="center">
+  💖 Deployed with love on Vercel ✨
+</p>
+
+
+<p align="right">
+  <a href="#readme-top">🌸 back to top 🌸</a>
 </p>
