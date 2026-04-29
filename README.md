@@ -104,6 +104,59 @@ next-portfolio/
 ├── README.md
 └── package.json
 ```
+## 🧰✨ Getting Started
+
+Follow these steps to run the project locally 💻💖
+
+---
+
+### 🌸 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+```
+
+---
+
+### 🎀 2. Install Dependencies
+
+```bash
+npm install
+```
+
+---
+
+### ⚡ 3. Run the Development Server
+
+```bash
+npm run dev
+```
+
+---
+
+### 🌐 4. Open in Browser
+
+Visit 👉 http://localhost:3000
+
+---
+
+### 💡 Notes
+
+* Make sure you have **Node.js** installed 🟢
+* You can use **npm / yarn / pnpm**
+* For production build:
+
+```bash
+npm run build
+npm start
+```
+
+---
+
+<p align="center">
+  💖 You're all set! Happy coding ✨
+</p>
 
 
 ## 📸✨ Preview
