@@ -17,7 +17,7 @@ This project showcases my work, skills, and projects as a developer.
 
 ## 🚀✨ Live Demo
 
-<p align="center">
+<p align="">
   <a href="https://kirti-portfolio-client.vercel.app/">
     <img src="https://img.shields.io/badge/🌸%20Live%20Portfolio-Visit%20Now-ff69b4?style=for-the-badge" />
   </a>
@@ -26,13 +26,11 @@ This project showcases my work, skills, and projects as a developer.
 ---
 
 ## 💻✨ Tech Stack
-
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=react,next,ts,tailwind,vercel" />
-</p>
-
-<p align="center">
+<p align="">
   💖 Built with love using modern web technologies ✨
+</p>
+<p align="">
+  <img src="https://skillicons.dev/icons?i=react,next,ts,tailwind,vercel" />
 </p>
 
 
