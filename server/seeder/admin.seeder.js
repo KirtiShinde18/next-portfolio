@@ -17,7 +17,7 @@ exports.seedAdmin = async () => {
            const existingAdmin = await Admin.findOne({email});
            
            if(existingAdmin){
-               console.log("⚠️ Admin Already exists");
+               console.log("⚠️ Queen Already Exist 🚫 👑 ");
                process.exit();
                
            }
@@ -31,7 +31,7 @@ exports.seedAdmin = async () => {
                password: hashedPassword
            });
    
-           console.log("✅ Admin Created Successfully");
+           console.log("👑 Queen Created Successfully ✅  🌸");
            process.exit();
            
        } catch (error) {
