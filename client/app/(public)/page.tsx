@@ -4,6 +4,7 @@ import { useGetProfileQuery, useGetProjectQuery, useGetSkillQuery } from '@/redu
 import { ArrowRight, ChevronDown, DownloadIcon, Github, Linkedin, MailIcon } from 'lucide-react'
 import { motion } from "framer-motion";
 import React from 'react'
+import BunnyLoader from '../_components/BunnyLoader';
 
 
 
@@ -15,9 +16,13 @@ const { data: projectData, isLoading: projectLoading } = useGetProjectQuery()
 
 if (isLoading || skillLoading || projectLoading) {
   // return <div className="text-center p-20 min-h-screen">Loading...</div>
-  return <div className="min-h-screen flex items-center justify-center">
-  <div className="w-16 h-16 border-4 border-pink-400 border-t-transparent rounded-full animate-spin"></div>
-</div>
+//   return <div className="min-h-screen flex items-center justify-center">
+//   <div className="w-16 h-16 border-4 border-pink-400 border-t-transparent rounded-full animate-spin"></div>
+// </div>
+
+return <>
+<BunnyLoader/>
+</>
 }
 
   return <>
