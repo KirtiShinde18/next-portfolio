@@ -1,0 +1,283 @@
+
+<a id="readme-top"></a>
+
+# 🌸 Kirti Shinde – Portfolio using Next.JS
+
+Welcome to my personal portfolio repository! ✨
+This project showcases my work, skills, and projects as a developer.
+
+<p align="center">
+  <img 
+    src="./client/public/assets/hero.png" 
+    width="90%" 
+    style="border-radius:15px; overflow:hidden;"
+  />
+</p>
+
+
+## 🚀✨ Live Demo
+
+<p align="">
+  <a href="https://kirti-portfolio-client.vercel.app/">
+    <img src="https://img.shields.io/badge/🌸%20Live%20Portfolio-Visit%20Now-ff69b4?style=for-the-badge" />
+  </a>
+</p>
+
+---
+
+## 💻✨ Tech Stack
+<p align="">
+  💖 Built with love using modern web technologies ✨
+</p>
+<p align="">
+  <img src="https://skillicons.dev/icons?i=react,next,ts,tailwind,vercel" />
+</p>
+
+
+## 📂 Folder Structure
+
+```bash
+next-portfolio/
+│
+├── client/                         # Next.js Frontend
+│   ├── .next/
+│   ├── public/
+│   │   └── assets/                 # Images (hero, previews, etc.)
+│   │       ├── img1.png
+│   │       ├── img2.png
+│   │       └── ...
+│   │
+│   ├── app/                        # Next.js App Router
+│   │   ├── _components/            # Reusable components
+│   │
+│   │   ├── (public)/               # Public routes
+│   │   │   ├── about/
+│   │   │   │   └── page.tsx
+│   │   │   ├── contact/
+│   │   │   │   └── page.tsx
+│   │   │   ├── experience/
+│   │   │   │   └── page.tsx
+│   │   │   ├── projects/
+│   │   │   │   └── page.tsx
+│   │   │   ├── skills/
+│   │   │   │   └── page.tsx
+│   │
+│   │   ├── admin/                  # Admin Panel
+│   │   │   ├── experience/
+│   │   │   ├── profile/
+│   │   │   ├── projects/
+│   │   │   ├── skills/
+│   │   │   ├── layout.tsx
+│   │   │   └── page.tsx
+│   │
+│   │   ├── login/
+│   │   │   └── page.tsx
+│   │
+│   │   ├── layout.tsx              # Root layout
+│   │   └── page.tsx                # Home page
+│   │
+│   ├── constants/
+│   ├── lib/
+│   ├── redux/
+│   ├── types/
+│   ├── .env
+│
+├── server/                         # Backend (Node.js / Express)
+│   ├── controllers/
+│   │   └── auth.controller.js
+│   │
+│   ├── middlewares/
+│   │
+│   ├── models/
+│   │   ├── Admin.js
+│   │   ├── Contact.js
+│   │   ├── Experience.js
+│   │   ├── Profile.js
+│   │   ├── Project.js
+│   │   ├── Skill.js
+│   │   └── Stats.js
+│   │
+│   ├── routes/
+│   │   ├── admin.routes.js
+│   │   └── auth.routes.js
+│   │
+│   ├── seeder/
+│   │   ├── admin.seeder.js
+│   │   └── index.js
+│   │
+│   ├── utils/
+│   │   ├── emailTemplates.js
+│   │   ├── cloud.js
+│   │   ├── config.js
+│   │   ├── email.js
+│   │   └── upload.js
+│   │
+│   ├── .env
+│   ├── index.js
+│   └── package.json
+│
+├── README.md
+└── package.json
+```
+## 🧰✨ Getting Started
+
+Follow these steps to run the project locally 💻💖
+
+---
+
+### 🌸 1. Clone the Repository
+
+```bash
+git clone https://github.com/KirtiShinde18/next-portfolio.git
+cd next-portfolio
+```
+
+---
+
+### 🎀 2. Setup Backend (Server)
+
+```bash
+cd server
+npm install
+```
+
+Create a `.env` file inside `/server`:
+
+```env
+PORT=5000
+MONGO_URI=your_mongodb_connection
+JWT_SECRET=your_secret_key
+```
+
+Run backend:
+
+```bash
+npm run dev
+```
+
+---
+
+### 💖 3. Setup Frontend (Client)
+
+```bash
+cd ../client
+npm install
+```
+
+Create a `.env` file inside `/client`:
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:5000
+```
+
+Run frontend:
+
+```bash
+npm run dev
+```
+
+---
+
+### 🌐 4. Open in Browser
+
+Frontend 👉 http://localhost:3000
+Backend 👉 http://localhost:5000
+
+---
+
+### 💡 Notes
+
+* Make sure **Node.js** is installed 🟢
+* Run **client & server in separate terminals** ⚡
+* Uses **Next.js + Express + MongoDB**
+
+---
+
+### 🚀 Production Build
+
+```bash
+# client
+npm run build
+npm start
+
+# server
+npm start
+```
+
+---
+
+<p align="center">
+  💖 You're all set! Happy coding ✨
+</p>
+
+
+## 📸✨ Preview
+
+### 💖 Portfolio UI
+
+<p align="center">
+  <img src="./client/public/assets/img1.png" width="90%" />
+</p>
+
+<p align="center">
+  <img src="./client/public/assets/img2.png" width="45%" />
+  <img src="./client/public/assets/img3.png" width="45%" />
+</p>
+
+<p align="center">
+  <img src="./client/public/assets/img4.png" width="45%" />
+  <img src="./client/public/assets/img5.png" width="45%" />
+</p>
+
+<p align="center">
+  <img src="./client/public/assets/img6.png" width="60%" />
+</p>
+
+---
+
+### 🛠️✨ Admin Panel
+
+<p align="center">
+  <img src="./client/public/assets/img8.png" width="45%" />
+  <img src="./client/public/assets/img9.png" width="45%" />
+</p>
+
+---
+
+<p align="center">
+  🌸 Clean UI • Responsive • Admin Dashboard 💻✨
+</p>
+
+## 🚀✨ Deploy on Vercel
+
+The easiest way to deploy this **Next.js portfolio** is using **Vercel** 💖
+
+---
+
+### 🌷 Steps
+
+1. Go to 👉 https://vercel.com
+2. Import your GitHub repository
+3. Select the **client** folder as root
+4. Add environment variables
+5. Click **Deploy** ✨
+
+---
+
+### 💡 Why Vercel?
+
+* ⚡ Built for Next.js
+* 🚀 Super fast deployment
+* 🔄 Automatic updates on push
+* 🌐 Free & easy to use
+
+---
+
+<p align="center">
+  💖 Deployed with love on Vercel ✨
+</p>
+
+
+<p align="right">
+  <a href="#readme-top">🌸 back to top 🌸</a>
+</p>
