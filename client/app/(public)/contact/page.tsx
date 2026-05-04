@@ -60,7 +60,7 @@ const Contact = () => {
 
   return <>
   <div className="min-h-screen md:mt-5  flex items-center justify-center px-4">
-    <div className="max-w-7xl mx-auto z-10 text-center my-5">
+    <div className="max-w-7xl mx-auto z-10 text-center mt-5">
       {/* HEADING */}
       <motion.h1 className="sm:text-5xl mt-20 text-4xl md:text-7xl font-bold mb-4 leading-tight text-center">
         {text.split("").map((char, index) => (
@@ -81,22 +81,23 @@ const Contact = () => {
         Let's get in touch
       </p>
 
-      <div className=' gap-10 grid grid-cols-1 lg:grid-cols-2 mb-10  p-5 items-center'>
+      <div className=' gap-10 grid grid-cols-1 lg:grid-cols-2 mb-10  p-3 items-center'>
         {/* left  */}
 
         <div className="lg:mr-10 xl:mr-20">
-          <img 
-            src="/contact.png" 
-            alt="contact animation" 
-            className="
-              w-3/4 sm:w-2/3 md:w-full 
-              max-w-xs sm:max-w-sm md:max-w-xl
-              mx-auto lg:mx-0
-              
-              drop-shadow-[0_10px_25px_rgba(0,0,0,0.4)] 
-              dark:drop-shadow-[0_15px_35px_rgba(0,0,0,0.9)]
-            "
-          />
+      <img 
+  src="/contact.png" 
+  alt="contact animation" 
+  className="
+    hidden md:block
+    w-3/4 sm:w-2/3 md:w-full 
+    max-w-xs sm:max-w-sm md:max-w-xl
+    mx-auto lg:mx-0
+    
+    drop-shadow-[0_10px_25px_rgba(0,0,0,0.4)] 
+    dark:drop-shadow-[0_15px_35px_rgba(0,0,0,0.9)]
+  "
+/>
         </div>
 
         {/* right  */}
@@ -106,7 +107,7 @@ const Contact = () => {
         bg-white/70 dark:bg-white/10 
           rounded-2xl md:rounded-2xl 
           shadow-none md:shadow-xl 
-          p-5 sm:p-6 md:p-8  "
+          p-2 sm:p-6 md:p-8  "
          >
   
           {/* Title */}

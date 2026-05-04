@@ -7,9 +7,13 @@ import React from 'react'
 
 const Home = () => {
 
-    const {data} = useGetProfileQuery()
-    const {data: skillData} = useGetSkillQuery()
-    const {data: projectData} = useGetProjectQuery()
+const { data, isLoading } = useGetProfileQuery()
+const { data: skillData, isLoading: skillLoading } = useGetSkillQuery()
+const { data: projectData, isLoading: projectLoading } = useGetProjectQuery()
+
+if (isLoading || skillLoading || projectLoading) {
+  return <div className="text-center p-20">Loading...</div>
+}
 
   return <>
 

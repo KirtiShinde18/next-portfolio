@@ -48,7 +48,7 @@ const Projects = () => {
 
   return (
     <>
-      <div className="min-h-screen md:mt-10 flex items-center justify-center px-4">
+      <div className="min-h-screen md:mt-10 mt-20 flex items-center justify-center px-4">
         <div className="max-w-7xl mx-auto z-10 text-center ">
           
           {/* HEADING */}
