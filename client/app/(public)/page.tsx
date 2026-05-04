@@ -5,6 +5,8 @@ import { ArrowRight, ChevronDown, DownloadIcon, Github, Linkedin, MailIcon } fro
 import { motion } from "framer-motion";
 import React from 'react'
 
+
+
 const Home = () => {
 
 const { data, isLoading } = useGetProfileQuery()
@@ -12,7 +14,10 @@ const { data: skillData, isLoading: skillLoading } = useGetSkillQuery()
 const { data: projectData, isLoading: projectLoading } = useGetProjectQuery()
 
 if (isLoading || skillLoading || projectLoading) {
-  return <div className="text-center p-20">Loading...</div>
+  // return <div className="text-center p-20 min-h-screen">Loading...</div>
+  return <div className="min-h-screen flex items-center justify-center">
+  <div className="w-16 h-16 border-4 border-pink-400 border-t-transparent rounded-full animate-spin"></div>
+</div>
 }
 
   return <>
