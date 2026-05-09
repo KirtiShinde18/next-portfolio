@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { motion } from "framer-motion";
-import { Github, Linkedin, LocationEditIcon, Mail, Phone } from 'lucide-react';
+import { Github, Linkedin, LocationEdit, LocationEditIcon, Mail, Phone } from 'lucide-react';
 import { useGetProfileQuery } from '@/redux/apis/admin.api';
 
 const Footer = () => {
@@ -75,7 +75,7 @@ const text = "Kirti";
               href= "https://maps.app.goo.gl/Y5BfSbUaJRTjwnPK7"
               className="flex items-center gap-3 mb-3 hover:text-purple-400 transition text-start"
             >
-              <Mail size={20} />
+              <LocationEdit size={20} />
               <span>{item.location}</span>
             </a>
 
