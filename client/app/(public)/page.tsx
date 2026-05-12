@@ -5,6 +5,7 @@ import { ArrowRight, ChevronDown, DownloadIcon, Github, Linkedin, MailIcon } fro
 import { motion } from "framer-motion";
 import React from 'react'
 import BunnyLoader from '../_components/BunnyLoader';
+import Loader from '../_components/Loader';
 
 
 
@@ -21,7 +22,8 @@ if (isLoading || skillLoading || projectLoading) {
 // </div>
 
 return <>
-<BunnyLoader/>
+{/* <BunnyLoader/> */}
+<Loader/>
 </>
 }
 
