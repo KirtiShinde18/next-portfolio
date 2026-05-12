@@ -22,8 +22,8 @@ if (isLoading || skillLoading || projectLoading) {
 // </div>
 
 return <>
-{/* <BunnyLoader/> */}
-<Loader/>
+<BunnyLoader/>
+{/* <Loader/> */}
 </>
 }
 
@@ -92,7 +92,7 @@ return <>
                 {/* Social Links */}
                 <div className="flex gap-4 mt-10 ">
                   <a
-                    href=""
+                    href={item.githubURL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 flex items-center justify-center border border-purple-300 rounded-full hover:bg-gradient-to-r from-purple-300 to-indigo-300 hover:text-black transition-all duration-300"
@@ -101,7 +101,7 @@ return <>
                   </a>
     
                   <a
-                    href=""
+                    href={item.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 flex items-center justify-center border border-purple-300 rounded-full hover:bg-gradient-to-r from-purple-300 to-indigo-300 hover:text-black transition-all duration-300"

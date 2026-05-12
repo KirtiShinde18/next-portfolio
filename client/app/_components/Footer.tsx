@@ -23,7 +23,9 @@ const text = "Kirti";
       <footer className="p-10 text-center border-t border-white/10 py-12  bg-gradient-to-br from-gray-100 via-white to-gray-200
           dark:bg-gradient-to-br dark:from-gray-900 dark:via-black dark:to-gray-800 text-lg">
 
-        <div className="my-10 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-10  md:text-left">
+        {
+          data && data.result.map(item => (
+                    <div className="my-10 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-10  md:text-left" key={item._id}>
 
           {/* Brand */}
           <div className="flex flex-col md:w-1/3 items-start md:items-start">
@@ -49,8 +51,7 @@ const text = "Kirti";
           </div>
         
           {/* Contact Us */}
-          {
-            data && data.result.map(item => <div className="flex flex-col md:w-1/3 items-start md:items-start" key={item._id}>
+          <div className="flex flex-col md:w-1/3 items-start md:items-start" key={item._id}>
             <h3 className="text-xl font-semibold font-display mb-4">
               Contact Us
             </h3>
@@ -86,8 +87,7 @@ const text = "Kirti";
             </div> */}
 
 
-          </div>)
-          }
+          </div>
         
           {/* Follow Me */}
           <div className="flex flex-col md:w-1/3 items-start md:items-start">
@@ -98,7 +98,7 @@ const text = "Kirti";
             <div className="flex gap-5 justify-start md:justify-start">
               
               <a
-                href="https://github.com/KirtiShinde18"
+                href={item.githubURL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full border border-purple-300 hover:bg-gradient-to-r from-purple-300 to-indigo-300   transition-all duration-300 hover:scale-110"
@@ -107,7 +107,7 @@ const text = "Kirti";
               </a>
         
               <a
-                href="https://www.linkedin.com/in/kirtishinde18/"
+                href={item.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full border border-purple-300 hover:bg-gradient-to-r from-purple-300 to-indigo-300   transition-all duration-300 hover:scale-110"
@@ -126,6 +126,8 @@ const text = "Kirti";
           </div>
 
         </div>
+          ))
+        }
 
         <hr className="border border-white/10  text-center text-gray-500 mb-10 "/>
         © 2026 Kirti Shinde . All rights Reserved. Design by <p className=" bg-gradient-to-r from-[#4158D0] via-[#C850C0] to-[#d382c8] bg-clip-text text-transparent"><b>Kreovate Studio</b></p>

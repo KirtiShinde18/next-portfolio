@@ -1,6 +1,6 @@
 "use client"
 
-import { Edit } from "lucide-react"
+import { Edit,  } from "lucide-react"
 import React, { useEffect, useState } from "react"
 import clsx from "clsx"
 import { useAddProfileMutation, useGetProfileQuery, useUpdateProfileMutation } from "@/redux/apis/admin.api"
@@ -31,7 +31,8 @@ type ProfileFormValues = {
   projectsCompleted: string,
   technologies: string,
   happyClients: string,
-
+  githubURL : string
+  linkedin: string
 }
 
 
@@ -67,6 +68,8 @@ const Profile = () => {
     projectsCompleted: z.string().min(1),
     technologies: z.string().min(1),
     happyClients: z.string().min(1),
+    githubURL: z.string().min(1),
+    linkedin: z.string().min(1),
   }) satisfies z.ZodType<ProfileFormValues>
 
   const { handleSubmit , register, reset, setValue, formState: {errors, touchedFields}} = useForm<ProfileFormValues>({
@@ -86,6 +89,8 @@ const Profile = () => {
       projectsCompleted : "",
       technologies : "",
       happyClients : "",
+      githubURL: "",
+      linkedin: ""
 
     }
   })
@@ -162,6 +167,8 @@ const Profile = () => {
     fd.append("projectsCompleted", data.projectsCompleted)
     fd.append("technologies", data.technologies)
     fd.append("happyClients", data.happyClients)
+    fd.append("githubURL", data.githubURL)
+    fd.append("linkedin", data.linkedin)
 
 
     const file = data.profilePic?.[0]
@@ -208,6 +215,8 @@ useEffect(() => {
     setValue("projectsCompleted", p.projectsCompleted)
     setValue("technologies", p.technologies)
     setValue("happyClients", p.happyClients)
+    setValue("githubURL", p.githubURL)
+    setValue("linkedin", p.linkedin)
   }
 }, [updatePF, data])
 
@@ -284,6 +293,8 @@ useEffect(() => {
                 {/* GRID */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 text-sm md:text-base ">
 
+
+
                   {/* BASIC INFO */}
                   <p><b>Mobile:</b> {item.mobile}</p>
                   <p><b>Email:</b> {item.email}</p>
@@ -303,6 +314,7 @@ useEffect(() => {
      
 
                   <p><b>Language:</b> {item.language}</p>
+
                 
                   {/* FULL WIDTH CONTENT */}
                   <p className="sm:col-span-2">
@@ -316,6 +328,8 @@ useEffect(() => {
                   <p className="sm:col-span-2"> 
                     <b>Bio:</b> {item.bio}
                   </p>
+
+
 
                 </div>
           
@@ -382,6 +396,12 @@ useEffect(() => {
 
                 {/* happyClients */}
                 <input {...register("happyClients")} placeholder="happyClients" className={handleClasses("happyClients")} />
+
+                {/* githubURL */}
+                <input {...register("githubURL")} placeholder="githubURL" className={handleClasses("githubURL")} />
+                {/* linkedin */}
+                <input {...register("linkedin")} placeholder="linkedin" className={handleClasses("linkedin")} />
+
 
                 {/* IMAGE FIELD */}
                 <div className="space-y-2">

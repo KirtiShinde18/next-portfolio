@@ -18,4 +18,7 @@ module.exports = mongoose.model("profile", new mongoose.Schema({
     technologies: { type: String, required: true },
     happyClients: { type: String, required: true },
 
+    githubURL: { type: String, required: true },
+    linkedin: { type: String, required: true },
+
 }, { timestamps: true }))

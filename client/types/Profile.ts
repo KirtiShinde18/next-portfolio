@@ -19,6 +19,8 @@ export type Profile = {
     projectsCompleted: string
     technologies: string
     happyClients: string
+    githubURL: string
+    linkedin: string
 }
 
 
@@ -39,6 +41,8 @@ export interface CREATE_PROFILE_REQUEST {
     projectsCompleted: string
     technologies: string
     happyClients: string
+    githubURL: string
+    linkedin: string
 }
 
 export type READ_PROFILE_RESPONSE = {
@@ -59,6 +63,8 @@ export type READ_PROFILE_RESPONSE = {
         projectsCompleted: string
         technologies: string
         happyClients: string
+        githubURL: string
+        linkedin: string
     }]
 }
 
