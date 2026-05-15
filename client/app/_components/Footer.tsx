@@ -4,6 +4,7 @@ import React from 'react'
 import { motion } from "framer-motion";
 import { Github, Linkedin, LocationEdit, LocationEditIcon, Mail, Phone } from 'lucide-react';
 import { useGetProfileQuery } from '@/redux/apis/admin.api';
+import Link from 'next/link';
 
 const Footer = () => {
 
@@ -130,7 +131,36 @@ const text = "Kirti";
         }
 
         <hr className="border border-white/10  text-center text-gray-500 mb-10 "/>
-        © 2026 Kirti Shinde . All rights Reserved. Design by <p className=" bg-gradient-to-r from-[#4158D0] via-[#C850C0] to-[#d382c8] bg-clip-text text-transparent"><b>Kreovate Studio</b></p>
+        {/* © {new Date().getFullYear()}  All rights Reserved. Design by <p className=" bg-gradient-to-r from-[#4158D0] via-[#C850C0] to-[#d382c8] bg-clip-text text-transparent"><b>Kirti Shinde</b></p> */}
+
+                {/* Bottom */}
+        <div className="
+          border-t border-black/10 dark:border-white/10
+          mt-12 pt-6
+          text-center
+          text-sm
+          text-gray-600 dark:text-white/60
+        ">
+
+          © {new Date().getFullYear()}  ☁️ Designed with 💖 Love by
+
+          <Link 
+          href="https://kirti-portfolio-client.vercel.app/"
+          className="
+            ml-2
+            font-semibold
+            bg-gradient-to-r
+            from-purple-500
+            to-indigo-500
+            bg-clip-text
+            text-transparent
+            cursor-pointer 
+          ">
+            <b>Kirti Shinde</b>
+          </Link>
+
+        </div>
+
       </footer>
   </>
 }

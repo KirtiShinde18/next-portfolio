@@ -44,7 +44,7 @@ const Profile = () => {
   const [addProfile] = useAddProfileMutation()
   const [updateProfile, {isLoading}] = useUpdateProfileMutation()
   
-  const { data } = useGetProfileQuery()
+  const { data, isFetching, isError  } = useGetProfileQuery()
   const isProfileExist = (data?.result?.length ?? 0) > 0
   
   const profile = data?.result?.[0]
@@ -270,6 +270,7 @@ useEffect(() => {
           </div>
 
           {/* display  */}
+
           {data?.result?.map((item) => (
             <div
               key={item._id}
