@@ -18,8 +18,8 @@ const { data: projectData, isLoading: projectLoading } = useGetProjectQuery()
 if (isLoading || skillLoading || projectLoading) {
 
 return <>
-{/* <BunnyLoader/> */}
-<Loader/>
+<BunnyLoader/>
+{/* <Loader/> */}
 </>
 }
 
