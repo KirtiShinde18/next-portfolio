@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useGetProjectQuery } from "@/redux/apis/admin.api";
+import { FaGithub } from "react-icons/fa";
 
 const text = "Projects";
 
@@ -140,7 +141,7 @@ const Projects = () => {
                     <a
                       href={item.liveURL}
                       target="_blank"
-                      className="flex-1 text-center px-3 py-2 text-black bg-gradient-to-r from-purple-300 to-indigo-300 hover:scale-[1.03] transition rounded-md text-sm"
+                      className="flex-1 text-center px-3 py-2 text-black bg-gradient-to-r from-purple-300 to-indigo-300 hover:scale-[1.03] transition rounded-md text-md"
                     >
                       Live
                     </a>
@@ -148,8 +149,9 @@ const Projects = () => {
                     <a
                       href={item.githubURL}
                       target="_blank"
-                      className="flex-1 text-center px-3 py-2 border border-white/20 rounded-md text-sm"
+                      className="flex-1 flex items-center justify-center gap-2 px-3 py-2 border border-white/20 rounded-md text-md"
                     >
+                      <FaGithub size={16} />
                       GitHub
                     </a>
                   </div>
