@@ -21,6 +21,9 @@ const Project = () => {
 
   const [preview, setPreview] = useState<string | null>(null)
   const [showEditImage, setShowEditImage] = useState(false)
+  const [activeTab, setActiveTab] = useState("All")
+
+
 
   const [edit, setEdit] = useState<string | null>(null)
 
@@ -30,6 +33,11 @@ const Project = () => {
     const [deleteProject] = useDeleteProjectMutation()
 
     const { data } = useGetProjectQuery()
+      // 🔥 FILTER LOGIC
+      const filteredData = data?.result?.filter((item: any) => {
+        if (activeTab === "All") return true
+        return item.category === activeTab
+      })
 
     // ✅ schema
   const projectSchema = z.object({
@@ -171,112 +179,138 @@ const handleDelete = async (data: DELETE_PROJECT_REQUEST) => {
 
             <button
               onClick={() => setIsOpen(true)}
-              className="px-3 py-2 bg-black text-white rounded-lg flex gap-2 items-center"
+              className="px-3 py-2 bg-black text-white rounded-lg flex gap-2 items-center cursor-pointer"
             >
               <Edit size={18} /> Create
             </button>
 
           </div>
 
+
           {/* display  */}
+    <div>
+      {/* ================= TABS ================= */}
+      <div className="flex gap-3 mt-6">
+        <button
+          onClick={() => setActiveTab("All")}
+          className={`px-4 py-2 rounded-lg transition cursor-pointer ${
+            activeTab === "All"
+              ? "bg-black text-white"
+              : "bg-gray-200 text-black"
+          }`}
+        >
+          All
+        </button>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-5">
-            {data?.result?.map((item: any) => (
-              <div
-              key={item._id}
-                className="group rounded-2xl overflow-hidden bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl hover:shadow-2xl transition-all duration-300"
-              >
-                {/* IMAGE */}
-                <div className="relative h-56 w-full overflow-hidden">
-                  <img
-                    src={item.hero}
-                    alt={item.title}
-                    className="h-full w-full object-cover group-hover:scale-110 transition"
-                  />
-                  
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition" />
-                </div>
+        <button
+          onClick={() => setActiveTab("Web App")}
+          className={`px-4 py-2 rounded-lg transition cursor-pointer ${
+            activeTab === "Web App"
+              ? "bg-black text-white"
+              : "bg-gray-200 text-black"
+          }`}
+        >
+          🌐 Website
+        </button>
 
-                {/* CONTENT */}
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold">
-                    {item.title}
-                  </h3>
+        <button
+          onClick={() => setActiveTab("Mobile App")}
+          className={`px-4 py-2 rounded-lg transition cursor-pointer ${
+            activeTab === "Mobile App"
+              ? "bg-black text-white"
+              : "bg-gray-200 text-black"
+          }`}
+        >
+          📱 App
+        </button>
+      </div>
 
-                  <p className="mt-2 text-gray-400">
-                    {item.desc}
-                  </p>
+      {/* ================= GRID ================= */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-5">
+        {filteredData?.map((item: any) => (
+          <div
+            key={item._id}
+            className="group rounded-2xl overflow-hidden bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl hover:shadow-2xl transition-all duration-300"
+          >
+            {/* IMAGE */}
+            <div className="relative h-56 w-full overflow-hidden">
+              <img
+                src={item.hero}
+                alt={item.title}
+                className="h-full w-full object-cover group-hover:scale-110 transition"
+              />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition" />
+            </div>
 
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {Array.isArray(item.tech)
-                      ? item.tech.map((t: string, i: number) => (
-                          <span
-                            key={i}
-                            className="px-2 py-1 text-sm rounded-full bg-purple-500/10 text-purple-400"
-                          >
-                            {t}
-                          </span>
-                        ))
-                      : item.tech?.split(",").map((t: string, i: number) => (
-                          <span
-                            key={i}
-                            className="px-2 py-1 text-sm rounded-full bg-purple-500/10 text-purple-400"
-                          >
-                            {t.trim()}
-                          </span>
-                    ))}
-                   </div>
+            {/* CONTENT */}
+            <div className="p-6">
+              <h3 className="text-xl font-semibold">{item.title}</h3>
 
-                  <div className="mt-6 flex gap-4">
-                  
-                      <a
-                        href={item.liveURL}
-                        target="_blank"
-                        className="px-4 py-2 text-black bg-gradient-to-r from-purple-300 to-indigo-300 hover:scale-105 transition-transform duration-300 shadow-lg rounded-md text-sm"
+              <p className="mt-2 text-gray-400">{item.desc}</p>
+
+              {/* TECH */}
+              <div className="mt-4 flex flex-wrap gap-2">
+                {Array.isArray(item.tech)
+                  ? item.tech.map((t: string, i: number) => (
+                      <span
+                        key={i}
+                        className="px-2 py-1 text-sm rounded-full bg-purple-500/10 text-purple-400"
                       >
-                        Live Demo
-                      </a>
-            
-
-                    <a
-                      href={item.githubURL}
-                      target="_blank"
-                      className="px-4 py-2 border border-white/20 rounded-md flex items-center gap-2"
-                    >
-                      <Github size={16} /> GitHub
-                    </a>
-                  </div>
-
-                  {/* update delete  */}
-                  <div className="my-3 flex gap-4 justify-end items-center">
-  
-                    {/* EDIT */}
-                    <button
-                      type="button"
-                      className="p-2 rounded-md hover:bg-blue-500/10 transition"
-                      onClick={() => {
-                        handleEditClick(item)
-                        // setEdit(item._id)
-                      }}
-                    >
-                      <Edit2 className="w-5 h-5 text-blue-500 hover:scale-110 transition" />
-                    </button>
-                  
-                    {/* DELETE */}
-                    <button
-                      type="button"
-                      className="p-2 rounded-md hover:bg-red-500/10 transition"
-                      onClick={() => handleDelete({ _id: item._id })}
-                    >
-                      <Trash className="w-5 h-5 text-red-500 hover:scale-110 transition" />
-                    </button>
-
-                  </div>
-
-                </div>
+                        {t}
+                      </span>
+                    ))
+                  : item.tech?.split(",").map((t: string, i: number) => (
+                      <span
+                        key={i}
+                        className="px-2 py-1 text-sm rounded-full bg-purple-500/10 text-purple-400"
+                      >
+                        {t.trim()}
+                      </span>
+                    ))}
               </div>
-            ))}
+
+              {/* LINKS */}
+              <div className="mt-6 flex gap-4">
+                <a
+                  href={item.liveURL}
+                  target="_blank"
+                  className="px-4 py-2 text-black bg-gradient-to-r from-purple-300 to-indigo-300 hover:scale-105 transition-transform duration-300 shadow-lg rounded-md text-sm"
+                >
+                  Live Demo
+                </a>
+
+                <a
+                  href={item.githubURL}
+                  target="_blank"
+                  className="px-4 py-2 border border-white/20 rounded-md flex items-center gap-2"
+                >
+                  GitHub
+                </a>
+              </div>
+
+              {/* ACTIONS */}
+              <div className="my-3 flex gap-4 justify-end items-center">
+                <button
+                  type="button"
+                  className="p-2 rounded-md hover:bg-blue-500/10 transition cursor-pointer"
+                  onClick={() => handleEditClick(item)}
+                >
+                  ✏️ Edit
+                </button>
+
+                <button
+                  type="button"
+                  className="p-2 rounded-md hover:bg-red-500/10 transition cursor-pointer"
+                  onClick={() => handleDelete({ _id: item._id })}
+                >
+                  🗑 Delete
+                </button>
+              </div>
+            </div>
           </div>
+        ))}
+      </div>
+    </div>
 
         </div>
 
@@ -413,14 +447,14 @@ const handleDelete = async (data: DELETE_PROJECT_REQUEST) => {
                       setEdit(null)
                       reset()
                     }}
-                    className="px-4 py-2 bg-gray-300 rounded-lg"
+                    className="px-4 py-2 bg-gray-300 rounded-lg cursor-pointer"
                   >
                     Cancel
                   </button>
 
                   <button
                     type="submit"
-                    className="px-3 py-2 bg-black text-white rounded-lg flex gap-2 items-center"
+                    className="px-3 py-2 bg-black text-white rounded-lg flex gap-2 items-center cursor-pointer"
                   >
                     {/* Create */}
                     {edit ? "Update" : "Create"}

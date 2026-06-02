@@ -114,7 +114,7 @@ const Experience = () => {
         
                     <button
                       onClick={() => setIsOpen(true)}
-                      className="px-3 py-2 bg-black text-white rounded-lg flex gap-2 items-center"
+                      className="cursor-pointer px-3 py-2 bg-black text-white rounded-lg flex gap-2 items-center"
                     >
                       <Edit size={18} /> Create
                     </button>
@@ -228,14 +228,14 @@ const Experience = () => {
                       setEdit(null)
                       reset()
                     }}
-                    className="px-4 py-2 bg-gray-300 rounded-lg"
+                    className="px-4 py-2 bg-gray-300 rounded-lg cursor-pointer"
                   >
                     Cancel
                   </button>
 
                   <button
                     type="submit"
-                    className="px-3 py-2 bg-black text-white rounded-lg flex gap-2 items-center"
+                    className="cursor-pointer px-3 py-2 bg-black text-white rounded-lg flex gap-2 items-center"
                   >
                     {/* Create */}
                     {edit ? "Update" : "Create"}

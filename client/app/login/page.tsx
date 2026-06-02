@@ -106,7 +106,7 @@ const AdminLogin = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-gradient-to-r from-purple-300 to-indigo-300 px-4 py-2 rounded-lg text-xl text-black"
+            className="cursor-pointer w-full bg-gradient-to-r from-purple-300 to-indigo-300 px-4 py-2 rounded-lg text-xl text-black"
           >
             {isLoading ? "Logging..." : "Login"}
           </button>

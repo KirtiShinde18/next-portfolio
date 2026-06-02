@@ -316,78 +316,70 @@ return <>
   
           {/* Bottom  projects card  */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-5">
-                {
-                projectData && projectData.result.map(item =>  (
-                    <div
-                        key={item._id}
-                        className="group rounded-2xl overflow-hidden bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl hover:shadow-2xl transition-all duration-300"
-                    >
-
-                        {/* IMAGE */}
-                        <div className="relative h-56 w-full overflow-hidden">
-                            <img
-                              src={item.hero}
-                              alt={item.title}
-                              className="h-full w-full object-cover group-hover:scale-110 transition"
-                            />
-                    
-                            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition" />
-                        </div>
-
-                        {/* CONTENT */}
-                        <div className="p-6">
-                            <h3 className="text-xl font-semibold">
-                              {item.title}
-                            </h3>
-        
-                            <p className="mt-2 text-gray-400">
-                              {item.desc}
-                            </p>
-    
-                            <div className="mt-4 flex flex-wrap gap-2">
-                                {Array.isArray(item.tech)
-                                    ? item.tech.map((t: string, i: number) => (
-                                        <span
-                                          key={i}
-                                          className="px-2 py-1 text-sm rounded-full bg-purple-500/10 text-purple-400"
-                                        >
-                                          {t}
-                                        </span>
-                                      ))
-                                    : item.tech?.split(",").map((t: string, i: number) => (
-                                        <span
-                                          key={i}
-                                          className="px-2 py-1 text-sm rounded-full bg-purple-500/10 text-purple-400"
-                                        >
-                                          {t.trim()}
-                                        </span>
-                                ))}
-                            </div>
-    
-                            <div className="mt-6 flex gap-4">
-                      
-                                <a
-                                  href={item.liveURL}
-                                  target="_blank"
-                                  className="px-4 py-2 text-black bg-gradient-to-r from-purple-200 to-indigo-200 hover:scale-105 transition-transform duration-300 shadow-lg rounded-md text-sm"
-                                >
-                                  Live Demo
-                                </a>
-                
-    
-                                <a
-                                  href={item.githubURL}
-                                  target="_blank"
-                                  className="px-4 py-2 border border-white/20 rounded-md flex items-center gap-2"
-                                >
-                                  <Github size={16} /> GitHub
-                                </a>
-                            </div>
-    
-                        </div>
+            {projectData &&
+              projectData.result
+                ?.slice(0, 3)
+                .map((item: any) => (
+                  <div
+                    key={item._id}
+                    className="group rounded-2xl overflow-hidden bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl hover:shadow-2xl transition-all duration-300"
+                  >
+                    {/* IMAGE */}
+                    <div className="relative h-56 w-full overflow-hidden">
+                      <img
+                        src={item.hero}
+                        alt={item.title}
+                        className="h-full w-full object-cover group-hover:scale-110 transition"
+                      />
+                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition" />
                     </div>
-                ))
-            }
+          
+                    {/* CONTENT */}
+                    <div className="p-6">
+                      <h3 className="text-xl font-semibold">{item.title}</h3>
+          
+                      <p className="mt-2 text-gray-400">{item.desc}</p>
+          
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {Array.isArray(item.tech)
+                          ? item.tech.map((t: string, i: number) => (
+                              <span
+                                key={i}
+                                className="px-2 py-1 text-sm rounded-full bg-purple-500/10 text-purple-400"
+                              >
+                                {t}
+                              </span>
+                            ))
+                          : item.tech?.split(",").map((t: string, i: number) => (
+                              <span
+                                key={i}
+                                className="px-2 py-1 text-sm rounded-full bg-purple-500/10 text-purple-400"
+                              >
+                                {t.trim()}
+                              </span>
+                            ))}
+                      </div>
+          
+                      <div className="mt-6 flex gap-4">
+                        <a
+                          href={item.liveURL}
+                          target="_blank"
+                          className="px-4 py-2 text-black bg-gradient-to-r from-purple-200 to-indigo-200 hover:scale-105 transition-transform duration-300 shadow-lg rounded-md text-sm"
+                        >
+                          Live Demo
+                        </a>
+          
+                        <a
+                          href={item.githubURL}
+                          target="_blank"
+                          className="px-4 py-2 border border-white/20 rounded-md flex items-center gap-2"
+                        >
+                          <Github size={16} /> GitHub
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                ))}
           </div>
   
           {/* button  */}

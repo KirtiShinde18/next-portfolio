@@ -261,7 +261,7 @@ useEffect(() => {
                   reset()             // 🧹 clear form
                 }
               }}
-                className="px-3 py-2 bg-black text-white rounded-lg flex gap-2 items-center"
+                className="cursor-pointer px-3 py-2 bg-black text-white rounded-lg flex gap-2 items-center"
             >
               <Edit size={18} />
               {isProfileExist ? "Edit" : "Create"}
@@ -422,7 +422,7 @@ useEffect(() => {
                         <button
                           type="button"
                           onClick={() => setShowEditImage(true)}
-                          className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300"
+                          className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 cursor-pointer"
                         >
                           Change Image
                         </button>
@@ -482,7 +482,7 @@ useEffect(() => {
                   <button
                     type="button"
                     onClick={() => setIsOpen(false)}
-                    className="px-4 py-2 bg-gray-300 rounded-lg"
+                    className="cursor-pointer px-4 py-2 bg-gray-300 rounded-lg"
                   >
                     Cancel
                   </button>
@@ -491,7 +491,7 @@ useEffect(() => {
                     updatePF 
                     ? <button
                     type="submit"
-                    className="px-4 py-2 bg-black text-white rounded-lg"
+                    className="px-4 py-2 bg-black text-white rounded-lg cursor-pointer"
                   >
                     {
                       isLoading
@@ -502,7 +502,7 @@ useEffect(() => {
                   </button>
                     : <button
                     type="submit"
-                    className="px-4 py-2 bg-black text-white rounded-lg"
+                    className="px-4 py-2 bg-black text-white rounded-lg cursor-pointer"
                   >
                     {
                       isLoading

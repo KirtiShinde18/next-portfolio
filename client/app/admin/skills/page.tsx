@@ -98,7 +98,7 @@ console.log("SKILL DATA =>", data)
         
                     <button
                       onClick={() => setIsOpen(true)}
-                      className="px-3 py-2 bg-black text-white rounded-lg flex gap-2 items-center"
+                      className="cursor-pointer px-3 py-2 bg-black text-white rounded-lg flex gap-2 items-center"
                     >
                       <Edit size={18} /> Create
                     </button>
@@ -127,14 +127,14 @@ console.log("SKILL DATA =>", data)
                                     handleEdit(item)
                                     setEdit(item._id)
                                 }} 
-                                className="text-xs px-2 py-1 rounded bg-blue-500 hover:bg-blue-600 text-white"
+                                className="cursor-pointer text-xs px-2 py-1 rounded bg-blue-500 hover:bg-blue-600 text-white"
                               >
                                 Edit
                               </button>
                 
                               <button
                               onClick={() => handleDelete({ _id: item._id })}
-                                className="text-xs px-2 py-1 rounded bg-red-500 hover:bg-red-600 text-white"
+                                className=" cursor-pointer text-xs px-2 py-1 rounded bg-red-500 hover:bg-red-600 text-white"
                               >
                                 Delete
                               </button>
@@ -176,7 +176,7 @@ console.log("SKILL DATA =>", data)
                           setEdit(null)
                           reset({ skill: "" })
                         }}
-                        className="px-4 py-2 bg-gray-300 rounded-lg"
+                        className="px-4 py-2 bg-gray-300 rounded-lg cursor-pointer"
                     >
                         Cancel
                     </button>
@@ -185,14 +185,14 @@ console.log("SKILL DATA =>", data)
                     edit 
                     ? <button
                         type="submit"
-                        className="px-3 py-2 bg-black text-white rounded-lg flex gap-2 items-center"
+                        className=" cursor-pointer px-3 py-2 bg-black text-white rounded-lg flex gap-2 items-center"
                     >
                         {isLoading ? "Updating...." : "Update"}
                     </button>
 
                     : <button
                         type="submit"
-                        className="px-3 py-2 bg-black text-white rounded-lg flex gap-2 items-center"
+                        className=" cursor-pointer px-3 py-2 bg-black text-white rounded-lg flex gap-2 items-center"
                     >
                         {isLoading ? "Saving..." : "Save Skills"}
                   </button>
